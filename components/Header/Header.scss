@@ -1,0 +1,87 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-header {
+  $g-transition-timing-function: ease;
+
+  background-color: $color-white;
+  color: $color-primary;
+  transition: background-color $g-transition-duration $g-transition-timing-function,
+    color $g-transition-duration $g-transition-timing-function;
+
+  @include media-breakpoint-down(sm) {
+    position: fixed;
+    z-index: $z-index-c-header;
+    top: 0;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    height: $g-header-height;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 pad(3xlarge) 0 pad(large);
+
+    @include media-breakpoint-down(sm) {
+      height: $g-header-height / 1.75;
+      padding: 0 pad(3xsmall) 0 pad(3xsmall);
+    }
+  }
+
+  &__account {
+    display: inline-flex;
+    min-width: px-to-rem(196px);
+    align-items: center;
+    padding: pad(5xsmall) pad() pad(5xsmall) pad(3xsmall);
+    border: 1px solid rgba($color-primary, 0.4);
+    margin-right: gap(3xsmall);
+    margin-left: gap(3xsmall);
+    border-radius: px-to-rem(40px);
+    color: inherit;
+    font-size: $g-font-size-6xlarge;
+    font-weight: 700;
+    text-align: center;
+    transition: border-color $g-transition-duration $g-transition-timing-function;
+
+    @include media-breakpoint-down(md) {
+      min-width: auto;
+      padding: 0;
+      border-color: transparent;
+      font-size: $g-font-size-3xlarge;
+    }
+
+    &:hover {
+      border-color: rgba($color-primary, 0.7);
+    }
+  }
+
+  &__logout {
+    display: inline-flex;
+    align-items: center;
+    margin-right: gap(3xsmall);
+    margin-left: gap(3xsmall);
+    color: rgba($color-primary, 0.5);
+    cursor: pointer;
+    font-size: $g-font-size-4xlarge;
+    transition: color $g-transition-duration $g-transition-timing-function;
+
+    @include media-breakpoint-down(md) {
+      font-size: $g-font-size-3xlarge;
+    }
+  }
+
+  &__logo {
+    width: px-to-rem(200px);
+
+    @include media-breakpoint-down(sm) {
+      max-width: 100%;
+      padding-right: pad(small);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+}

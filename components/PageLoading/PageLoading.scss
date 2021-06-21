@@ -1,0 +1,27 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-page-loading {
+  position: fixed;
+  z-index: $z-index-c-page-loading;
+  top: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-nero;
+  font-size: px-to-rem(16px);
+  font-weight: 700;
+
+  &__image {
+    width: px-to-rem(360px);
+    margin-bottom: gap(xsmall);
+
+    @include media-breakpoint-down(md) {
+      width: px-to-rem(240px);
+    }
+  }
+}

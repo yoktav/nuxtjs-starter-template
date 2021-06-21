@@ -1,0 +1,72 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-alert {
+  $border-radius: px-to-rem(16px);
+
+  $themes: (info, $color-primary), (warning, $color-warning), (success, $color-success),
+    (danger, $color-danger), (gray, color-palette('gray', 500));
+
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  min-width: px-to-rem(80px);
+  max-height: px-to-rem(600px);
+  align-items: flex-start;
+  padding: pad(xsmall) pad(small) pad(xsmall) pad(small);
+  border-left: 4px solid; // stylelint-disable-line meowtec/no-px
+  border-radius: 0 $border-radius $border-radius 0;
+  font-size: px-to-em(18px);
+  font-weight: 600;
+
+  transition: opacity 0.95s $g-transition-timing-function, max-height 1s ease,
+    padding-bottom 1s $g-transition-timing-function, margin-bottom 1s $g-transition-timing-function;
+
+  @each $theme-name, $theme-color in $themes {
+    &--#{$theme-name} {
+      background-color: rgba($theme-color, 0.1);
+      border-left-color: $theme-color;
+
+      .c-alert__close {
+        &:hover {
+          color: $theme-color;
+        }
+      }
+
+      a {
+        color: $theme-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    margin-right: gap(xsmall);
+    font-size: px-to-em(22px);
+  }
+
+  &__close {
+    flex-shrink: 0;
+    margin-left: gap(xsmall);
+    cursor: pointer;
+    font-size: px-to-em(20px);
+    outline: 0;
+    transition: color $g-transition-duration $g-transition-timing-function;
+  }
+
+  &.has-close-button {
+    padding-right: pad(xsmall);
+  }
+
+  &.is-deleting {
+    max-height: 0;
+    margin-bottom: 0 !important; // stylelint-disable-line declaration-no-important
+    opacity: 0;
+  }
+}

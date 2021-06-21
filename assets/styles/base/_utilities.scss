@@ -1,0 +1,396 @@
+//
+// Utilities
+//
+
+.u-clearfix {
+  @include clearfix;
+}
+
+.u-img-fluid {
+  @include img-fluid;
+}
+
+.u-text-truncate {
+  @include text-truncate;
+}
+
+.u-visually-hidden {
+  @include visually-hidden;
+}
+
+.u-text-decoration-none\:hover:hover {
+  // stylelint-disable-next-line declaration-no-important
+  text-decoration: none !important;
+}
+
+.u-background-image-cropped {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.u-flexbox-vertical-center {
+  @include flexbox-vertical-center;
+}
+
+.u-flexbox-horizontal-center {
+  @include flexbox-horizontal-center;
+}
+
+//
+// Utilities
+//
+
+$margin-utility-values: transform-spaces-map-to-utilty-values(
+  map-merge(
+    (
+      'auto': auto,
+      '0': 0,
+    ),
+    $g-gaps
+  )
+);
+
+$padding-utility-values: transform-spaces-map-to-utilty-values(
+  map-merge(
+    (
+      '0': 0,
+    ),
+    $g-pads
+  )
+);
+
+$g-utilities: (
+  'float': (
+    property: float,
+    values: left right none,
+  ),
+  'border-radius': (
+    property: border-radius,
+    values: (
+      '50' + quote(\%): 50%,
+      'primary': $g-border-radius,
+    ),
+  ),
+  'line-height': (
+    property: line-height,
+    values: 1 1.5 1.7,
+  ),
+  'order': (
+    property: order,
+    values: 1 2,
+  ),
+  'position': (
+    property: position,
+    values: static relative,
+  ),
+  'overflow': (
+    property: overflow,
+    values: auto hidden,
+  ),
+  'table-layout': (
+    property: table-layout,
+    values: fixed,
+  ),
+  'user-select': (
+    property: user-select,
+    values: none,
+  ),
+  'pointer-events': (
+    property: pointer-events,
+    values: none,
+  ),
+  'cursor': (
+    property: cursor,
+    values: pointer,
+  ),
+  'color': (
+    property: color,
+    values: (
+      'muted': $g-text-muted-color,
+      'primary': $color-primary,
+      'success': $color-success,
+      'info': $color-info,
+      'danger': $color-danger,
+      'warning': $color-warning,
+      'white': $color-white,
+      'default': $g-text-color,
+      'black': $color-black,
+    ),
+  ),
+  'background-repeat': (
+    property: background-repeat,
+    values: no-repeat,
+  ),
+  'background-color': (
+    property: background-color,
+    values: (
+      'primary': $color-primary,
+      'success': $color-success,
+      'danger': $color-danger,
+      'warning': $color-warning,
+      'white': $color-white,
+      'gray-50': color-palette('gray', 50),
+    ),
+  ),
+  'display': (
+    property: display,
+    values: (
+      value: block,
+      responsive: true,
+    )
+    (
+      value: none,
+      responsive: true,
+    )
+    (
+      value: flex,
+      responsive: true,
+    )
+    inline
+    (
+      value: inline-block,
+      responsive: true,
+    )
+    table table-row table-cell inline-flex,
+  ),
+  'flex': (
+    property: flex,
+    values: 1 none,
+  ),
+  'flex-grow': (
+    property: flex-grow,
+    values: (
+      value: 1,
+      responsive: true,
+    )
+    2,
+  ),
+  'flex-shrink': (
+    property: flex-shrink,
+    values: 0,
+  ),
+  'flex-direction': (
+    property: flex-direction,
+    values: row row-reverse
+      (
+        value: column,
+        responsive: true,
+      )
+      column-reverse,
+  ),
+  'flex-wrap': (
+    property: flex-wrap,
+    values: wrap nowrap wrap-reverse,
+  ),
+  'justify-content': (
+    property: justify-content,
+    values: flex-start flex-end center space-between space-around,
+  ),
+  'align-items': (
+    property: align-items,
+    values: flex-start flex-end
+      (
+        value: center,
+        responsive: true,
+      )
+      baseline stretch,
+  ),
+  'align-content': (
+    property: align-content,
+    values: flex-start flex-end center space-between space-around stretch,
+  ),
+  'align-self': (
+    property: align-self,
+    values: auto flex-start flex-end center stretch,
+  ),
+  'max-width': (
+    property: max-width,
+    values: (
+      '100' + quote(\%): 100%,
+    ),
+  ),
+  'min-width': (
+    property: min-width,
+    values: (
+      '100' + quote(\%): 100%,
+      '0': 0,
+      'auto': auto,
+    ),
+  ),
+  'width': (
+    property: width,
+    values: (
+      '100' + quote(\%):
+        (
+          value: 100%,
+          responsive: true,
+        ),
+      'auto': (
+        value: auto,
+        responsive: true,
+      ),
+      '50' + quote(\%): 50%,
+    ),
+  ),
+  'height': (
+    property: height,
+    values: (
+      '100' + quote(\%): 100%,
+      '100vh': 100vh,
+    ),
+  ),
+  'font-size': (
+    property: font-size,
+    values: (
+      '2xsmall': (
+        value: $g-font-size-2xsmall,
+        responsive: true,
+      ),
+      'xsmall': (
+        value: $g-font-size-xsmall,
+        responsive: true,
+      ),
+      'small': (
+        value: $g-font-size-small,
+        responsive: true,
+      ),
+      'base': (
+        value: $g-font-size-base,
+        responsive: true,
+      ),
+      'medium': (
+        value: $g-font-size-medium,
+        responsive: true,
+      ),
+      'large': (
+        value: $g-font-size-large,
+        responsive: true,
+      ),
+      'xlarge': (
+        value: $g-font-size-xlarge,
+        responsive: true,
+      ),
+      '2xlarge': (
+        value: $g-font-size-2xlarge,
+        responsive: true,
+      ),
+      '3xlarge': (
+        value: $g-font-size-3xlarge,
+        responsive: true,
+      ),
+      '4xlarge': (
+        value: $g-font-size-4xlarge,
+        responsive: true,
+      ),
+      '5xlarge': (
+        value: $g-font-size-5xlarge,
+        responsive: true,
+      ),
+      '6xlarge': (
+        value: $g-font-size-6xlarge,
+        responsive: true,
+      ),
+    ),
+  ),
+  'word-break': (
+    property: word-break,
+    values: break-all,
+  ),
+  'white-space': (
+    property: white-space,
+    values: nowrap,
+  ),
+  'text-decoration': (
+    property: text-decoration,
+    values: underline none,
+  ),
+  'text-align': (
+    property: text-align,
+    values: (
+      value: left,
+      responsive: true,
+    )
+    (
+      value: right,
+      responsive: true,
+    )
+    (
+      value: center,
+      responsive: true,
+    )
+    justify,
+  ),
+  'text-transform': (
+    property: text-transform,
+    values: lowercase uppercase capitalize,
+  ),
+  'font-weight': (
+    property: font-weight,
+    values: 300 400 500 600 700,
+  ),
+  'vertical-align': (
+    property: vertical-align,
+    values: top bottom middle baseline text-bottom,
+  ),
+  'margin': (
+    property: margin,
+    values: $margin-utility-values,
+  ),
+  'margin-top': (
+    property: margin-top,
+    values: $margin-utility-values,
+  ),
+  'margin-bottom': (
+    property: margin-bottom,
+    values: $margin-utility-values,
+  ),
+  'margin-left': (
+    property: margin-left,
+    values: $margin-utility-values,
+  ),
+  'margin-right': (
+    property: margin-right,
+    values: $margin-utility-values,
+  ),
+  'margin-sides': (
+    property: margin-left margin-right,
+    values: $margin-utility-values,
+  ),
+  'margin-ends': (
+    property: margin-top margin-bottom,
+    values: $margin-utility-values,
+  ),
+  'padding': (
+    property: padding,
+    values: $padding-utility-values,
+  ),
+  'padding-top': (
+    property: padding-top,
+    values: $padding-utility-values,
+  ),
+  'padding-bottom': (
+    property: padding-bottom,
+    values: $padding-utility-values,
+  ),
+  'padding-left': (
+    property: padding-left,
+    values: $padding-utility-values,
+  ),
+  'padding-right': (
+    property: padding-right,
+    values: $padding-utility-values,
+  ),
+  'padding-sides': (
+    property: padding-left padding-right,
+    values: $padding-utility-values,
+  ),
+  'padding-ends': (
+    property: padding-top padding-bottom,
+    values: $padding-utility-values,
+  ),
+);
+
+@each $key, $utility in $g-utilities {
+  @include generate-utility($utility, $key);
+}

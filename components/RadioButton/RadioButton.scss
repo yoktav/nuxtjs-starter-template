@@ -1,0 +1,148 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-radio-button {
+  $background-color: $color-primary;
+  $border-width: 1px;
+  $border-radius: px-to-rem(16px);
+
+  position: relative;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+
+  &::before {
+    display: block;
+    width: 100%;
+    padding-top: percentage(1/1.9);
+    content: '';
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border: $border-width solid $background-color;
+    border-radius: $border-radius;
+    color: $g-text-color;
+    line-height: 1.1;
+    transition: border-color $g-transition-duration $g-transition-timing-function,
+      background-color $g-transition-duration $g-transition-timing-function;
+
+    @include media-breakpoint-down(sm) {
+      padding: pad(5xsmall) pad(5xsmall);
+      border-radius: $border-radius / 2;
+    }
+
+    &::after {
+      $size: px-to-em(32px);
+      $icon-color: fff; // Do not use `#`. Becasuse # is included to background image as url encoded
+
+      position: absolute;
+      top: 0;
+      right: -$size;
+      width: $size * 1.8;
+      height: $size;
+      background-color: darken($color-success, 5%);
+      background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctitle%3Echeckmark%3C/title%3E%3Cpath d='M28.143 9.022l-1.994-1.994c-0.368-0.367-0.962-0.367-1.329 0l-11.954 11.954-5.686-5.727c-0.367-0.367-0.961-0.367-1.33 0l-1.994 1.994c-0.367 0.368-0.367 0.962 0 1.33l8.338 8.394c0.367 0.367 0.962 0.367 1.329 0l14.62-14.621c0.367-0.366 0.367-0.962 0-1.329z' fill='%23#{$icon-color}'%3E%3C/path%3E%3C/svg%3E%0A");
+      background-position: $size / 2;
+      background-repeat: no-repeat;
+      background-size: px-to-em(24px);
+      border-bottom-left-radius: $border-radius * 1.5;
+      border-top-right-radius: $border-radius;
+      content: '';
+      font-size: $size / 2;
+      transform: translate3d(0, -200%, 0);
+      transition: transform $g-transition-duration $g-transition-timing-function;
+
+      @include media-breakpoint-down(sm) {
+        font-size: $size / 3;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &--category {
+    padding-right: pad();
+    padding-left: pad();
+    font-weight: 700;
+
+    .c-icon {
+      margin-right: gap(3xsmall);
+      font-size: px-to-rem(52px);
+    }
+
+    .c-radio-button__content {
+      justify-content: flex-start;
+      padding-right: pad(4xsmall);
+      padding-left: pad(4xsmall);
+
+      @include media-breakpoint-down(md) {
+        font-size: $g-font-size-small;
+        text-align: center;
+      }
+    }
+  }
+
+  &.is-valid {
+    $state-color: $color-success;
+
+    .c-radio-button__content {
+      border-color: $state-color;
+    }
+  }
+
+  &.is-invalid {
+    $state-color: $color-danger;
+
+    .c-radio-button__content {
+      border-color: $state-color;
+    }
+  }
+
+  &.is-warning {
+    $state-color: $color-warning;
+
+    .c-radio-button__content {
+      border-color: $state-color;
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:hover {
+    .c-radio-button__content {
+      background-color: rgba($background-color, 0.1);
+      border-color: transparent;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked {
+      ~ .c-radio-button__content {
+        background-color: rgba($background-color, 0.2);
+        border-color: transparent;
+
+        // stylelint-disable-next-line selector-max-specificity, max-nesting-depth
+        &::after {
+          transform: translate3d(-50%, ($border-width * -2), 0);
+        }
+      }
+    }
+  }
+}

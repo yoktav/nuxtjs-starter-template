@@ -1,0 +1,101 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-toggle-switch {
+  $height: px-to-em(40px);
+  $min-width: px-to-rem(64px);
+  $font-size: px-to-em(16px);
+  $font-weight: 700;
+  $border-radius: px-to-rem(64px);
+  $padding-sides: px-to-em(12px);
+  $gutter-sides: px-to-rem(4px);
+
+  $indicator-thickness: px-to-rem(5px);
+  $indicator-color: $color-white;
+  $indicator-initial-color: $color-white;
+  $indicator-active-color: $color-light-gray;
+  $indicator-size: px-to-em(32px);
+
+  $text-and-indicator-gap-size: $indicator-size + px-to-em(2px);
+
+  $initial-background-color: rgba($color-light-gray, 0.9);
+  $initial-color: $color-white;
+  $active-background-color: rgba($color-white, 0.9);
+  $active-color: $color-primary;
+
+  position: relative;
+  display: flex;
+  min-width: $min-width;
+  height: $height;
+  align-items: center;
+  padding-right: $padding-sides;
+  padding-left: $padding-sides;
+  border: 1px solid $color-primary;
+  background-color: $initial-background-color;
+  border-radius: $border-radius;
+  color: $initial-color;
+  cursor: pointer;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: 1;
+  outline: 0;
+  transition-duration: $g-transition-duration;
+  transition-property: background-color;
+  transition-timing-function: $g-transition-timing-function;
+
+  @if not($active-color == null) {
+    transition-property: background-color, color;
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: calc(calc(100% - #{$gutter-sides * 2}) - #{$indicator-size * 1});
+    width: $indicator-size;
+    height: $indicator-size;
+    border: 1px solid $color-primary;
+    background-color: $indicator-initial-color;
+    border-radius: 50%;
+    content: '';
+    transform: translate3d(#{$gutter-sides}, -50%, 0);
+    transition-duration: $g-transition-duration;
+    transition-property: left, background-color;
+    transition-timing-function: $g-transition-timing-function;
+  }
+
+  &__text {
+    &--primary {
+      padding-right: $text-and-indicator-gap-size;
+      padding-left: pad(5xsmall);
+    }
+
+    &--secondary {
+      display: none;
+      padding-right: pad(5xsmall);
+      padding-left: $text-and-indicator-gap-size;
+      margin-left: auto;
+    }
+  }
+
+  &.is-active {
+    background-color: $active-background-color;
+
+    @if not($active-color == null) {
+      color: $active-color;
+    }
+
+    &::before {
+      left: 0;
+      background-color: $indicator-active-color;
+    }
+
+    .c-toggle-switch__text {
+      &--primary {
+        display: none;
+      }
+
+      &--secondary {
+        display: inherit;
+      }
+    }
+  }
+}

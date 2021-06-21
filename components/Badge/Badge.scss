@@ -1,0 +1,21 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-badge {
+  $themes: (info, $color-primary), (warning, $color-warning), (success, $color-success),
+    (danger, $color-danger), (gray, color-palette('gray', 500));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: pad(5xsmall) pad(3xsmall);
+  border-radius: px-to-rem(40px);
+  font-weight: 500;
+  text-align: center;
+
+  @each $theme-name, $theme-color in $themes {
+    &--#{$theme-name} {
+      background-color: rgba($theme-color, 0.2);
+      color: darken($theme-color, 5%);
+    }
+  }
+}

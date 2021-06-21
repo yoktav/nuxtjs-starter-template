@@ -1,0 +1,5 @@
+node_modules
+package.json
+.nuxt
+assets/styles/libs/
+dist

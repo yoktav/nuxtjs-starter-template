@@ -1,0 +1,17 @@
+@mixin toggle-card-content-wrapper(
+  $transition-duration: $toggle-card-content-wrapper-transition-duration,
+  $transition-timing-function: $toggle-card-content-wrapper-transition-timing-function
+) {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height $transition-duration $transition-timing-function,
+    opacity $transition-duration $transition-timing-function;
+  will-change: max-height, opacity;
+
+  @include toggle-card-active() {
+    max-height: px-to-rem(800px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

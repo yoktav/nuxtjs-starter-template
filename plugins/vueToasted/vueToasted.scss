@@ -1,0 +1,38 @@
+@import '../../node_modules/vue-toast-notification/dist/theme-sugar.css';
+
+@import '../../assets/styles/abstracts/index';
+
+.v-toast {
+  &__item {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      margin-top: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &--success {
+      $state-color: $color-success;
+
+      background-color: $state-color;
+    }
+
+    &--info {
+      $state-color: $color-info;
+
+      background-color: $state-color;
+    }
+
+    &--warning {
+      $state-color: $color-warning;
+
+      background-color: $state-color;
+    }
+
+    &--error {
+      $state-color: $color-danger;
+
+      background-color: $state-color;
+    }
+  }
+}

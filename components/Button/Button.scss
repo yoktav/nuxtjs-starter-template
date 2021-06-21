@@ -1,0 +1,98 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-button {
+  @import '../../node_modules/buttono/buttono';
+
+  $buttono-border-radius: px-to-rem(60px);
+  $buttono-padding: px-to-rem(8px) pad();
+  $buttono-font-size: px-to-em(16px);
+  $buttono-opacity-disabled: 0.5;
+  $buttono-transition-duration: $g-transition-duration;
+  $buttono-transition-property: background-color, color, border-color, transform;
+  $buttono-border-width: 2px; // stylelint-disable-line meowtec/no-px
+
+  @include buttono-block($display: inline-flex);
+
+  min-width: px-to-rem(200px);
+  min-height: px-to-rem(48px);
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition-timing-function: $g-transition-timing-function;
+
+  &:hover {
+    transform: translate3d(0, -8px, 0); // stylelint-disable-line meowtec/no-px
+  }
+
+  //
+  // Themes
+  //
+
+  &--primary {
+    @include buttono-style-modifier(
+      $background-color: $color-primary,
+      $color: $color-white,
+      $color-hover: $color-white
+    );
+
+    box-shadow: 0 px-to-rem(8px) px-to-rem(64px) px-to-rem(6px) rgba($color-primary, 0.3);
+  }
+
+  &--ghost {
+    @include buttono-style-modifier(
+      $background-color: rgba($color-primary, 0.1),
+      $background-color-hover: rgba($color-primary, 0.2),
+      $color: $color-primary,
+      $color-hover: $color-primary,
+      $border-color: transparent
+    );
+  }
+
+  &--success {
+    @include buttono-style-modifier(
+      $background-color: $color-success,
+      $background-color-hover: lighten($color-success, 2%),
+      $color: $color-white,
+      $color-hover: $color-white,
+      $border-color: transparent
+    );
+
+    box-shadow: 0 px-to-rem(8px) px-to-rem(64px) px-to-rem(6px) rgba($color-success, 0.3);
+  }
+
+  //
+  // Modifiers
+  //
+
+  &--circle {
+    min-width: auto;
+    min-height: auto;
+    padding: px-to-rem(10px);
+    border-radius: 50%;
+    font-size: px-to-em(20px);
+
+    &:hover {
+      $scale-value: 1.05;
+
+      transform: translate3d(0, 0, 0) scale3d($scale-value, $scale-value, $scale-value);
+    }
+  }
+
+  &--small {
+    min-height: auto;
+    padding: pad(4xsmall);
+
+    @include media-breakpoint-down(md) {
+      padding: px-to-rem(2px);
+    }
+
+    &:not(.c-button--circle) {
+      border-radius: $buttono-border-radius / 2;
+    }
+  }
+
+  &.is-disabled {
+    opacity: $buttono-opacity-disabled;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,83 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-navbar {
+  overflow: hidden;
+  width: px-to-rem(150px);
+  height: calc(100vh - #{$g-header-height});
+  background-color: $color-primary;
+  color: $color-white;
+  transition: background-color $g-transition-duration $g-transition-timing-function,
+    color $g-transition-duration $g-transition-timing-function;
+
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    z-index: $z-index-c-navbar;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $g-navbar-mobile-height;
+  }
+
+  &__container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include media-breakpoint-down(lg) {
+      flex-direction: row;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: pad(small);
+    color: inherit;
+    font-size: $g-font-size-6xlarge;
+    opacity: 0.5;
+    transition: opacity $g-transition-duration ease;
+
+    @include media-breakpoint-down(lg) {
+      padding: pad();
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: px-to-rem(40px);
+      height: 100%;
+      background-color: $color-secondary;
+      border-radius: $g-border-radius;
+      content: '';
+      transform: translate3d(-300%, 0, 0);
+      transition: transform $g-transition-duration ease;
+
+      @include media-breakpoint-down(lg) {
+        top: unset;
+        left: unset;
+        width: 75%;
+        height: px-to-rem(48px);
+        transform: translate3d(0, 250%, 0);
+      }
+    }
+
+    &.nuxt-link-exact-active,
+    &:hover {
+      opacity: 1;
+
+      &::before {
+        transform: translate3d(-150%, 0, 0);
+
+        @include media-breakpoint-down(lg) {
+          transform: translate3d(0, 107%, 0);
+        }
+      }
+    }
+  }
+}

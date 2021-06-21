@@ -1,0 +1,75 @@
+//
+// FAQ
+// --------------------------------------------------
+
+//
+// Initials
+//
+
+$toggle-card-parent-class: 'c-toggle-card' !default;
+$toggle-card-active-class: 'is-active' !default;
+$toggle-card-transition-duration: $g-transition-duration !default;
+$toggle-card-transition-timing-function: $g-transition-timing-function !default;
+
+//
+// Component
+//
+
+$toggle-card-background-color: null !default;
+$toggle-card-background-color-hover: null !default;
+$toggle-card-background-color-active: null !default;
+
+$toggle-card-box-shadow: null !default;
+$toggle-card-box-shadow-hover: null !default;
+$toggle-card-box-shadow-active: null !default;
+
+$toggle-card-border-radius: $g-border-radius !default;
+$toggle-card-transition-property: null !default;
+$toggle-card-will-change: null !default;
+
+//
+// Title
+//
+
+$toggle-card-title-background-color: transparent !default;
+$toggle-card-title-background-color-hover: transparent !default;
+$toggle-card-title-background-color-active: transparent !default;
+
+$toggle-card-title-color: $g-text-color !default;
+$toggle-card-title-color-hover: darken($toggle-card-title-color, 15%) !default;
+$toggle-card-title-color-active: darken($toggle-card-title-color, 15%) !default;
+
+$toggle-card-title-box-shadow: null !default;
+$toggle-card-title-box-shadow-hover: null !default;
+$toggle-card-title-box-shadow-active: null !default;
+
+$toggle-card-title-font-weight: 400 !default;
+$toggle-card-title-padding: pad(2xsmall) !default;
+
+$toggle-card-title-transition-duration: $toggle-card-transition-duration !default;
+$toggle-card-title-transition-property: color, background-color !default;
+$toggle-card-title-transition-timing-function: $toggle-card-transition-timing-function !default;
+$toggle-card-title-will-change: null !default;
+
+//
+// Icon
+//
+
+$toggle-card-icon-transition-property: transform !default;
+$toggle-card-icon-transition-duration: $toggle-card-transition-duration !default;
+$toggle-card-icon-transition-timing-function: $toggle-card-transition-timing-function !default;
+
+//
+// Content
+//
+
+$toggle-card-content-background-color: transparent !default;
+$toggle-card-content-color: inherit !default;
+$toggle-card-content-padding: $toggle-card-title-padding !default;
+
+//
+// Content-wrapper
+//
+
+$toggle-card-content-wrapper-transition-duration: $toggle-card-transition-duration !default;
+$toggle-card-content-wrapper-transition-timing-function: $toggle-card-transition-timing-function !default;

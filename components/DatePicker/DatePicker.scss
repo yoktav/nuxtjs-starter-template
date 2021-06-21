@@ -1,0 +1,114 @@
+// stylelint-disable selector-max-specificity
+
+@import '../../assets/styles/abstracts/index';
+
+$namespace: 'mx'; // This $namespace value for <date-picker prefix-class="$namespace" />
+
+$default-color: darken($color-white, 10%);
+$primary-color: $color-primary;
+
+$today-color: mix($color-nero, $primary-color, 10%);
+$not-current-month-color: lighten($color-nero, 45%);
+
+$input-border-color: $g-border-color;
+$border-color: $color-nero;
+
+$calendar-active-color: $color-white;
+$calendar-active-background-color: darken($primary-color, 5%);
+
+$calendar-hover-color: $default-color;
+$calendar-hover-background-color: $primary-color;
+
+$input-border-radius: px-to-rem(8px);
+$sidebar-margin-left: px-to-rem(100px);
+
+@import '~/node_modules/vue2-datepicker/scss/index';
+
+.mx-table-date .cell.not-current-month {
+  color: $not-current-month-color;
+}
+
+.mx-datepicker-popup {
+  background-color: $color-nero;
+}
+
+.c-date-picker {
+  $animation-duration: 1.5s;
+
+  &__text {
+    transition: color $g-transition-duration ease-in-out;
+  }
+
+  &__wrapper {
+    width: 100%;
+
+    .mx-input {
+      height: px-to-rem(41px);
+      border: 2px solid $g-border-color; // stylelint-disable-line meowtec/no-px
+      background-color: transparent;
+      box-shadow: unset;
+      color: $g-text-color;
+      font-size: px-to-em(14px);
+      font-weight: 600;
+    }
+
+    .mx-icon-calendar {
+      color: $color-light-gray;
+    }
+  }
+
+  &.is-valid {
+    $state-color: $color-success;
+
+    .c-date-picker__text {
+      color: $state-color;
+    }
+
+    .mx-input {
+      animation: pulse-valid $animation-duration;
+      border-color: $state-color;
+      color: $state-color;
+
+      &::placeholder {
+        color: $state-color;
+      }
+    }
+  }
+
+  &.is-invalid {
+    $state-color: $color-danger;
+
+    .c-date-picker__text {
+      color: $state-color;
+    }
+
+    .mx-input {
+      animation: pulse-invalid $animation-duration;
+      border-color: $state-color;
+      color: $state-color;
+
+      &::placeholder {
+        color: $state-color;
+      }
+    }
+  }
+
+  &.is-warning {
+    $state-color: $color-warning;
+
+    .c-date-picker__text {
+      color: $state-color;
+    }
+
+    .mx-input {
+      animation: pulse-warning $animation-duration;
+      border-color: $state-color;
+      color: $state-color;
+
+      &::placeholder {
+        color: $state-color;
+      }
+    }
+  }
+}
+// stylelint-enable selector-max-specificity

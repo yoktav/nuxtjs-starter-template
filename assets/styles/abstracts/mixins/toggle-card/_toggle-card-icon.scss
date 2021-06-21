@@ -1,0 +1,9 @@
+@mixin toggle-card-icon(
+  $transition-duration: $toggle-card-icon-transition-duration,
+  $transition-property: $toggle-card-icon-transition-property,
+  $transition-timing-function: $toggle-card-icon-transition-timing-function
+) {
+  transition-duration: $transition-duration;
+  transition-property: $transition-property;
+  transition-timing-function: $transition-timing-function;
+}

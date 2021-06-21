@@ -1,0 +1,31 @@
+@mixin toggle-card-content(
+  $background-color: $toggle-card-content-background-color,
+  $color: $toggle-card-content-color,
+  $padding: $toggle-card-content-padding
+) {
+  position: relative;
+
+  //
+  // Background color
+  //
+
+  @if not($background-color == null) {
+    background-color: $background-color;
+  }
+
+  //
+  // Color
+  //
+
+  @if not($color == null) {
+    color: $color;
+  }
+
+  @if not($padding == null) {
+    padding: $padding;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+}

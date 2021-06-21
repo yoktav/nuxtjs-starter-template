@@ -1,0 +1,89 @@
+@mixin toggle-card(
+  $background-color: $toggle-card-background-color,
+  $background-color-hover: $toggle-card-background-color-hover,
+  $background-color-active: $toggle-card-background-color-active,
+  $box-shadow: $toggle-card-box-shadow,
+  $box-shadow-hover: $toggle-card-box-shadow-hover,
+  $box-shadow-active: $toggle-card-box-shadow-active,
+  $border-radius: $toggle-card-border-radius,
+  $transition-duration: $toggle-card-transition-duration,
+  $transition-property: $toggle-card-transition-property,
+  $transition-timing-function: $toggle-card-transition-timing-function,
+  $will-change: $toggle-card-will-change
+) {
+  overflow: hidden;
+
+  @if not($transition-property == null) {
+    transition-duration: $transition-duration;
+    transition-property: $transition-property;
+    transition-timing-function: $transition-timing-function;
+  }
+
+  @if not($will-change == null) {
+    will-change: $will-change;
+  }
+
+  @if not($border-radius == null) {
+    border-radius: $border-radius;
+  }
+
+  //
+  // Background color
+  //
+
+  @if not($background-color == null) {
+    background-color: $background-color;
+  }
+
+  @if not($background-color-hover == null) {
+    &:hover {
+      background-color: $background-color-hover;
+    }
+  }
+
+  @if not($background-color-active == null) {
+    &.#{$toggle-card-active-class} {
+      background-color: $background-color-active;
+    }
+  }
+
+  //
+  // Box shadow
+  //
+
+  @if not($box-shadow == null) {
+    box-shadow: $box-shadow;
+  }
+
+  @if not($box-shadow-hover == null) {
+    &:hover {
+      box-shadow: $box-shadow-hover;
+    }
+  }
+
+  @if not($box-shadow-active == null) {
+    &.#{$toggle-card-active-class} {
+      box-shadow: $box-shadow-active;
+    }
+  }
+
+  //
+  // Elements
+  //
+
+  &__title {
+    @include toggle-card-title();
+  }
+
+  &__icon {
+    @include toggle-card-icon();
+  }
+
+  &__content {
+    @include toggle-card-content();
+  }
+
+  &__content-wrapper {
+    @include toggle-card-content-wrapper();
+  }
+}

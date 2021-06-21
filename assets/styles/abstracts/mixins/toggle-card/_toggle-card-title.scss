@@ -1,0 +1,93 @@
+@mixin toggle-card-title(
+  $background-color: $toggle-card-title-background-color,
+  $background-color-hover: $toggle-card-title-background-color-hover,
+  $background-color-active: $toggle-card-title-background-color-active,
+  $color: $toggle-card-title-color,
+  $color-hover: $toggle-card-title-color-hover,
+  $color-active: $toggle-card-title-color-active,
+  $box-shadow: $toggle-card-title-box-shadow,
+  $box-shadow-hover: $toggle-card-title-box-shadow-hover,
+  $box-shadow-active: $toggle-card-title-box-shadow-active,
+  $padding: $toggle-card-title-padding,
+  $font-weight: $toggle-card-title-font-weight,
+  $transition-duration: $toggle-card-title-transition-duration,
+  $transition-property: $toggle-card-title-transition-property,
+  $transition-timing-function: $toggle-card-title-transition-timing-function,
+  $will-change: $toggle-card-title-will-change
+) {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: $padding;
+  border: 0;
+  color: $color;
+  cursor: pointer;
+  font-weight: $font-weight;
+  transition-duration: $transition-duration;
+  transition-property: $transition-property;
+  transition-timing-function: $transition-timing-function;
+
+  @if not($will-change == null) {
+    will-change: $will-change;
+  }
+
+  //
+  // Background color
+  //
+
+  @if not($background-color == null) {
+    background-color: $background-color;
+  }
+
+  @if not($background-color-hover == null) {
+    &:hover {
+      background-color: $background-color-hover;
+    }
+  }
+
+  @if not($background-color-active == null) {
+    @include toggle-card-active() {
+      background-color: $background-color-active;
+    }
+  }
+
+  //
+  // Box shadow
+  //
+
+  @if not($box-shadow == null) {
+    box-shadow: $box-shadow;
+  }
+
+  @if not($box-shadow-hover == null) {
+    &:hover {
+      box-shadow: $box-shadow-hover;
+    }
+  }
+
+  @if not($box-shadow-active == null) {
+    @include toggle-card-active() {
+      box-shadow: $box-shadow-active;
+    }
+  }
+
+  //
+  // Color
+  //
+
+  @if not($color-hover == null) {
+    &:hover {
+      color: $color-hover;
+    }
+  }
+
+  @if not($color-active == null) {
+    @include toggle-card-active() {
+      color: $color-active;
+    }
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

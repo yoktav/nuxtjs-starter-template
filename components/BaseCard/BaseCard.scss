@@ -1,0 +1,22 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-base-card {
+  $themes: (primary, $color-primary), (primaryLight, rgba($color-primary, 0.1));
+
+  width: 100%;
+  padding: pad(medium) px-to-rem(56px);
+  background-color: $color-nero;
+  border-radius: $g-border-radius;
+  box-shadow: $g-box-shadow-primary;
+
+  @include media-breakpoint-down(sm) {
+    padding: pad(small) pad();
+    border-radius: px-to-rem(24px);
+  }
+
+  @each $theme-name, $theme-color in $themes {
+    &--#{$theme-name} {
+      background-color: $theme-color;
+    }
+  }
+}

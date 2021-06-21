@@ -1,0 +1,13 @@
+//
+// GLOBAL KEYFRAMES
+// --------------------------------------------------
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(8px); // stylelint-disable-line meowtec/no-px
+  }
+}

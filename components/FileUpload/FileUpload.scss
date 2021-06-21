@@ -1,0 +1,67 @@
+@import '../../assets/styles/abstracts/index';
+
+.c-file-upload {
+  $upload-border-radius: px-to-rem(20px);
+
+  position: relative;
+  border-radius: $upload-border-radius;
+  text-align: center;
+  transition: transform $g-transition-duration ease;
+
+  &__label {
+    display: block;
+    padding: pad(xlarge) pad(small);
+    border: 2px dashed $color-primary; // stylelint-disable-line meowtec/no-px
+    border-radius: $upload-border-radius;
+    color: $color-primary;
+    cursor: pointer;
+  }
+
+  &__uploaded-file {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 85%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  &__image {
+    height: 100%;
+    border-radius: $upload-border-radius / 2;
+  }
+
+  &__remove-image {
+    $position: px-to-rem(8px);
+
+    position: absolute;
+    top: $position;
+    right: $position;
+    width: px-to-rem(24px);
+    height: px-to-rem(24px);
+    background-color: $color-danger;
+    border-radius: 75%;
+    color: $color-white;
+    cursor: pointer;
+    filter: drop-shadow(0 0 px-to-rem(152px) px-to-rem(26px) rgba($color-black, 0.3));
+    font-size: $g-font-size-medium;
+    transition: transform $g-transition-duration $g-transition-timing-function;
+
+    &:hover {
+      $scale-value: 1.5;
+
+      transform: scale3d($scale-value, $scale-value, $scale-value);
+    }
+  }
+
+  &__text {
+    transition: color $g-transition-duration $g-transition-timing-function;
+  }
+
+  &--uploaded {
+    background-color: rgba($color-primary, 0.1);
+
+    .c-file-upload__text {
+      opacity: 0;
+    }
+  }
+}

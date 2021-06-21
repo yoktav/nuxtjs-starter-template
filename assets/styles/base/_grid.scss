@@ -1,0 +1,66 @@
+//
+//  FLEX GRID
+//  Inspired by Bootstrap Grid (v4)
+//  --------------------------------------------------
+
+.container {
+  @include make-grid-container();
+  @include make-grid-container-max-widths();
+}
+
+.container\@md-up {
+  @include make-grid-container();
+
+  @include media-breakpoint-up(md) {
+    @include make-grid-container-max-widths();
+  }
+}
+
+.container\@sm-up {
+  @include make-grid-container();
+
+  @include media-breakpoint-up(sm) {
+    @include make-grid-container-max-widths();
+  }
+}
+
+.container-fluid {
+  @include make-grid-container();
+}
+
+.row {
+  @include make-grid-row();
+
+  //
+  // Elements
+  // ------------------------
+
+  //
+  // Modifiers
+  // -------------------------
+
+  &--no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  &--small-gutters {
+    margin-right: -($grid-gutter-width / 4);
+    margin-left: -($grid-gutter-width / 4);
+
+    > .col {
+      padding-right: $grid-gutter-width / 4;
+      padding-left: $grid-gutter-width / 4;
+    }
+  }
+}
+
+.col {
+  @include make-grid-columns();
+  @include make-grid-col-ready();
+}
