@@ -2,7 +2,7 @@
   <div class="u-height-100vh">
     <div class="container u-height-100%">
       <div class="c-error-page-wrapper">
-        <NuxtLink :to="ROUTE_NAMES.HOME.PATH"> Return homepage </NuxtLink>
+        <NuxtLink :to="ROUTE_NAMES.HOME.PATH"> Project </NuxtLink>
 
         <img
           :src="
@@ -13,10 +13,18 @@
                 ? '404'
                 : error.statusCode === 500
                 ? '500'
-                : ''
+                : '500'
             }.png`)
           "
-          alt="StarterTemplate-HATA"
+          :alt="
+            error.statusCode === 403
+              ? $t('ERROR_LAYOUT.STATUS_403')
+              : error.statusCode === 404
+              ? $t('ERROR_LAYOUT.STATUS_404')
+              : error.statusCode === 500
+              ? $t('ERROR_LAYOUT.STATUS_500')
+              : $t('ERROR_LAYOUT.STATUS_UNDEFINED')
+          "
           class="c-error-image"
         />
 
@@ -71,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/styles/abstracts/index';
+@import '~assets/styles/abstracts/index';
 
 .c-error-page-wrapper {
   display: grid;
