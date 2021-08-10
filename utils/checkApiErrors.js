@@ -10,7 +10,7 @@ export function checkApiResponseErrors(params) {
   if (process.env.NUXT_ENV_MODE === 'development') console.log(response);
 
   that.$toast.warning(
-    `Bir hata oluştu (${response.status} - ${response.statusText})`,
+    `An error occurred (${response.status} - ${response.statusText})`,
     TOAST_OPTIONS,
   );
 
