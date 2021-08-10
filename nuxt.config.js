@@ -1,11 +1,13 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+
   head: {
     // eslint-disable-next-line quotes
     title: 'NuxtJS Starter Template',
     htmlAttrs: {
       lang: 'en',
     },
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,11 +16,12 @@ export default {
       { name: 'theme-color', content: '#1620d7' },
       { name: 'msapplication-TileColor', content: '#1620d7' },
     ],
+
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon/favicon.ico',
+        href: `${process.env.NUXT_ENV_BASE_URL}/favicon/favicon.ico`,
       },
     ],
   },
@@ -28,6 +31,10 @@ export default {
     // SCSS file in the project
     '~/assets/styles/main.scss',
   ],
+
+  env: {
+    baseUrl: process.env.NUXT_ENV_BASE_URL,
+  },
 
   target: 'static',
 
