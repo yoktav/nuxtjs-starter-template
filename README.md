@@ -44,10 +44,10 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Custom error pages
 
 ### Built-in Utility Scripts
-- Common response check for api results (checkApiRequestErrors)
+- Common response check for api results (checkApiErrors)
 - fetchData
 - sendData
-- formatTRYPrice
+- formatPrice
 - getDate
 - stripNonNumeric
 

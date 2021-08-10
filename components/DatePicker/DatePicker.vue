@@ -9,16 +9,15 @@
   >
     <div v-if="hasLabelText" class="c-date-picker__text">{{ labelText }}</div>
 
-    <DatePicker
-      ref="datePicker"
+    <Picker
       v-model="datePickerModel"
       class="c-date-picker__wrapper"
       :lang="lang"
       :range="range"
-      format="DD-MM-YYYY"
+      format="DD.MM.YYYY"
       :name="name"
+      value-type="format"
       :disabled="isDisabled"
-      range-separator="/"
       @change="handleChange()"
     />
   </label>
@@ -27,10 +26,9 @@
 <script>
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/locale/tr';
-import { getDateFromISO, getDateFromISOYearFirst } from '~/utils/getDate';
 
 export default {
-  components: { DatePicker },
+  components: { Picker: DatePicker },
 
   props: {
     range: {
@@ -38,6 +36,10 @@ export default {
       default: false,
     },
     name: {
+      type: String,
+      default: null,
+    },
+    value: {
       type: String,
       default: null,
     },
@@ -74,7 +76,6 @@ export default {
   data() {
     return {
       datePickerModel: null,
-      datePickerValue: null,
 
       lang: {
         formatLocale: {
@@ -84,10 +85,13 @@ export default {
     };
   },
 
+  mounted() {
+    this.datePickerModel = this.value;
+  },
+
   methods: {
     handleChange() {
-      this.datePickerValue = getDateFromISO(this.datePickerModel);
-      this.$emit('input', getDateFromISOYearFirst(this.datePickerModel));
+      this.$emit('input', this.datePickerModel);
     },
   },
 };
