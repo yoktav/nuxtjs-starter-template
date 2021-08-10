@@ -27,3 +27,24 @@ export function checkApiRequestErrors(params) {
     console.log(error);
   }
 }
+
+//
+// EXAMPLE
+//
+// import { fetchData } from '~/utils/fetchData';
+// import { TOAST_OPTIONS } from '~/project-constants/global';
+//
+// methods: {
+//   login() {
+//     try {
+//       const response = await fetchData(url, config);
+//
+//       if (this.checkApiResponseErrors({ that: this, response })) return;
+//
+//       this.$toast.success('Successfully logged in', TOAST_OPTIONS);
+//     } catch (err) {
+//       this.checkApiRequestErrors({ error: err });
+//     }
+//   }
+// }
+//
