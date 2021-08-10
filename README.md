@@ -47,7 +47,7 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Common response check for api results (checkApiErrors)
 - fetchData
 - sendData
-- formatTRYPrice
+- formatPrice
 - getDate
 - stripNonNumeric
 
