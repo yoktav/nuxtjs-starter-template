@@ -56,7 +56,7 @@ export default {
     '~/plugins/veeValidate/veeValidate.js',
 
     // Mixins
-    '~/mixins/forLoopkey.js',
+    '~/mixins/forLoopKey.js',
     '~/mixins/clipboard.js',
 
     // Directives
