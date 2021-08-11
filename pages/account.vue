@@ -29,7 +29,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import '../assets/styles/abstracts/index';
-</style>

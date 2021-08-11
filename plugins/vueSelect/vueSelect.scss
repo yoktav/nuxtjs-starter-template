@@ -1,6 +1,6 @@
-@import '../../node_modules/vue-select/dist/vue-select.css';
+@import '~/node_modules/vue-select/dist/vue-select.css';
 
-@import '../../assets/styles/abstracts/index';
+@import '~assets/styles/abstracts/index';
 
 .vs__dropdown-option--highlight {
   background-color: rgba($color-primary, 0.1);
@@ -18,9 +18,7 @@
   .vs__open-indicator {
     fill: $g-border-color;
   }
-  .vs__selected {
-    background-color: $color-primary;
-  }
+
   .vs__selected,
   .vs__search {
     padding-top: pad(4xsmall);

@@ -5,6 +5,10 @@
         <h1 class="u-font-weight-600 u-margin-bottom-medium">
           Hello <b class="u-color-primary">World !</b>
         </h1>
+
+        <v-select :options="options">
+          <div slot="no-options">Can't find any results.</div>
+        </v-select>
       </div>
     </div>
   </div>
@@ -14,6 +18,12 @@
 export default {
   layout: 'page',
 
+  data() {
+    return {
+      options: ['as', 'das'],
+    };
+  },
+
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.finish();
@@ -21,7 +31,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import '../assets/styles/abstracts/index';
-</style>
