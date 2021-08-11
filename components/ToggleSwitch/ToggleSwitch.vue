@@ -29,7 +29,7 @@ export default {
       type: String,
       default: 'OFF',
     },
-    isActive: {
+    value: {
       type: Boolean,
       default: false,
     },
@@ -38,13 +38,34 @@ export default {
   data() {
     return {
       ACTIVE_CLASS: 'is-active',
+      isActive: false,
     };
   },
 
+  watch: {
+    value() {
+      this.initToggle();
+    },
+  },
+
+  mounted() {
+    this.initToggle();
+  },
+
   methods: {
+    initToggle() {
+      this.isActive = this.value;
+
+      if (this.isActive) {
+        this.$el.classList.add(this.ACTIVE_CLASS);
+      }
+    },
+
     toggleSwitch() {
+      this.isActive = !this.isActive;
       this.$el.classList.toggle(this.ACTIVE_CLASS);
       this.$emit('clicked');
+      this.$emit('input', this.isActive);
     },
   },
 };

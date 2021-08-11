@@ -12,7 +12,7 @@ import { LOADING_SCREEN_MIN_DURATION } from '~/project-constants/generic';
 export default {
   data() {
     return {
-      loadingText: 'Yükleniyor...',
+      loadingText: 'Loading...',
       loading: true,
       startTime: null,
       finishTime: null,

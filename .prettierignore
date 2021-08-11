@@ -3,3 +3,4 @@ package.json
 .nuxt
 assets/styles/libs/
 dist
+components/Editor/Bubble/build/

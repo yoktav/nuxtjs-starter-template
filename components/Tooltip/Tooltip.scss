@@ -1,25 +1,25 @@
-@import '../../assets/styles/abstracts/index';
+@import '~assets/styles/abstracts/index';
 
 //
 // Globals
 //
 
-@import '../../node_modules/tippy.js/dist/tippy.css';
-@import '../../node_modules/tippy.js/dist/svg-arrow.css';
+@import '~/node_modules/tippy.js/dist/tippy.css';
+@import '~/node_modules/tippy.js/dist/svg-arrow.css';
 
 //
 // Options
 //
 
-@import '../../node_modules/tippy.js/dist/backdrop.css';
-@import '../../node_modules/tippy.js/animations/shift-away.css';
+@import '~/node_modules/tippy.js/dist/backdrop.css';
+@import '~/node_modules/tippy.js/animations/shift-away.css';
 
 //
 // Themes
 //
 
-@import '../../node_modules/tippy.js/themes/material.css';
-@import '../../node_modules/tippy.js/themes/light.css';
+@import '~/node_modules/tippy.js/themes/material.css';
+@import '~/node_modules/tippy.js/themes/light.css';
 
 .c-tooltip {
   display: inline-block;

@@ -10,44 +10,52 @@ This is a starter template for NuxtJS (Vue.js) developers.
 
 ### Packages
 - i18n
-- Vee validate
-- Copy to clipboard
 - Toast
-- Tippy tooltip
-- Vue Select
 - Axios
 - Apollo
-- GraphQL
 - Buttono
+- GraphQL
+- CKEditor
 - SVG Sprite
-- Jest configurations
+- Vue Select
+- Vee Validate
 - Vue Test Utils
+- Tippy (Tooltip)
+- Copy to Clipboard
+- Jest Configurations
 
 ### Components
 - Alert
 - Badge
-- Card
-- Button
-- Date Picker
-- File Upload
-- Header
-- Navbar
 - Input
 - Modal
-- Page loading
-- Radio button
-- Toggle switch
+- Button
+- Editor
+- Header
 - Navbar
-- Alert
-- Navbar
-- Alert
-- Custom error pages
+- Tooltip
+- BaseCard
+- VueSelect
+- DatePicker
+- FileUpload
+- RadioButton
+- VeeValidate
+- PageLoading
+- ToggleSwitch
+- EmbedResponsive
+
+### Mixins
+- v-for Random Loop Key Generator
+- Clipboard
+
+### Directives
+- Tooltip
 
 ### Built-in Utility Scripts
-- Common response check for api results (checkApiRequestErrors)
+- Common response check for api results (checkApiErrors)
 - fetchData
 - sendData
-- formatTRYPrice
+- formatPrice
 - getDate
 - stripNonNumeric
 
@@ -55,6 +63,29 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Stylelint
 - Prettier
 - ESLinter
+
+### Editor
+- Link
+- Bold
+- Italic
+- Indent
+- Heading
+- Font Size
+- Highlight
+- Subscript
+- Underline
+- Font Color
+- Superscript
+- BlockQuote
+- StrikeTrough
+- Source Editing
+- Text Alignment
+- Horizontal Line
+- Remove Format
+- General HTML Support
+
+### Others
+- Custom Error Pages
 
 ## Build Setup
 

@@ -1,11 +1,28 @@
-@import '../../node_modules/vue-select/dist/vue-select.css';
+@import '~/node_modules/vue-select/dist/vue-select.css';
+@import '~assets/styles/abstracts/index';
 
-@import '../../assets/styles/abstracts/index';
+//
+// Mixins
+//
 
-.vs__dropdown-option--highlight {
-  background-color: rgba($color-primary, 0.1);
-  color: $color-primary;
+@mixin vue-select-state($state-color) {
+  .vs__dropdown-toggle {
+    border-color: $state-color;
+  }
+
+  .vs__selected,
+  .vs__search {
+    color: $state-color;
+
+    &::placeholder {
+      color: $state-color;
+    }
+  }
 }
+
+//
+// Styles
+//
 
 .v-select {
   .vs__dropdown-toggle {
@@ -13,20 +30,22 @@
     border-radius: px-to-rem(8px);
   }
 
+  .vs__dropdown-option--highlight {
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+  }
+
   .vs__clear,
   .vs__spinner,
   .vs__open-indicator {
     fill: $g-border-color;
   }
-  .vs__selected {
-    background-color: $color-primary;
-  }
+
   .vs__selected,
   .vs__search {
     padding-top: pad(4xsmall);
     padding-bottom: pad(4xsmall);
     color: $g-text-color;
-    font-size: px-to-em(14px);
     font-weight: 600;
 
     &::placeholder {
@@ -35,56 +54,14 @@
   }
 
   &.is-valid {
-    $state-color: $color-success;
-
-    .vs__dropdown-toggle {
-      border-color: $state-color;
-    }
-
-    .vs__selected,
-    .vs__search {
-      color: $state-color;
-
-      // stylelint-disable-next-line selector-max-specificity
-      &::placeholder {
-        color: $state-color;
-      }
-    }
+    @include vue-select-state($state-color: $color-success);
   }
 
   &.is-invalid {
-    $state-color: $color-danger;
-
-    .vs__dropdown-toggle {
-      border-color: $state-color;
-    }
-
-    .vs__selected,
-    .vs__search {
-      color: $state-color;
-
-      // stylelint-disable-next-line selector-max-specificity
-      &::placeholder {
-        color: $state-color;
-      }
-    }
+    @include vue-select-state($state-color: $color-danger);
   }
 
   &.is-warning {
-    $state-color: $color-warning;
-
-    .vs__dropdown-toggle {
-      border-color: $state-color;
-    }
-
-    .vs__selected,
-    .vs__search {
-      color: $state-color;
-
-      // stylelint-disable-next-line selector-max-specificity
-      &::placeholder {
-        color: $state-color;
-      }
-    }
+    @include vue-select-state($state-color: $color-warning);
   }
 }

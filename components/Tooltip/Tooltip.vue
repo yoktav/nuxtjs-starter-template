@@ -86,5 +86,5 @@ export default {
 
 <style lang="scss">
 // Since tippy.js mounted to document.body, its styles should not be scoped
-@import './Tooltip';
+@import '~/directives/tooltip/Tooltip';
 </style>

@@ -1,6 +1,4 @@
 export const ROUTE_NAMES = {
-  BASE: '/',
-
   //
   // GENERAL
   //

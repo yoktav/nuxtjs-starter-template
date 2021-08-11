@@ -1,54 +1,49 @@
-function makeDoubleInteger(date) {
-  return `0${date}`.slice(-2);
-}
+const ONE_DAY_AS_MILISECOND = 1000 * 60 * 60 * 24;
 
-function getDateFromISO(UTCDate) {
-  const utc = new Date(UTCDate).toUTCString();
+export const makeDoubleInteger = date => `0${date}`.slice(-2);
 
-  // prettier-ignore
-  return `${makeDoubleInteger(new Date(utc).getDate())}.${makeDoubleInteger(new Date(utc).getMonth() + 1)}.${new Date(utc).getFullYear()}`
-}
+const calculateDate = params => {
+  let { date, seperator, hasHM: hasHourAndMinute, HMSeperator: hourAndMinuteSeperator } = params;
 
-function getDateFromISOYearFirst(UTCDate) {
-  const utc = new Date(UTCDate).toUTCString();
+  if (seperator == undefined) seperator = '.';
+  if (hourAndMinuteSeperator == undefined) hourAndMinuteSeperator = '-';
+  if (hasHourAndMinute == undefined) hasHourAndMinute = false;
 
-  // prettier-ignore
-  return `${new Date(utc).getFullYear()}-${makeDoubleInteger(new Date(utc).getMonth() + 1)}-${makeDoubleInteger(new Date(utc).getDate())}`
-}
+  const utc = new Date(date).toUTCString();
 
-function getDateFromISOWithHourAndMinute(UTCDate) {
-  const utc = new Date(UTCDate).toUTCString();
+  const month = makeDoubleInteger(new Date(utc).getMonth() + 1); // Since month list indexes starts with 0, we need to add 1 to get proper view
+  const day = makeDoubleInteger(new Date(utc).getDate());
+  const year = new Date(utc).getFullYear();
 
-  // prettier-ignore
-  return `${makeDoubleInteger(new Date(utc).getDate())}.${makeDoubleInteger(new Date(utc).getMonth() + 1)}.${new Date(utc).getFullYear()} - ${makeDoubleInteger(new Date(utc).getHours())}:${makeDoubleInteger(new Date(utc).getMinutes())}`
-}
+  let formattedDate = `${day}${seperator}${month}${seperator}${year}`;
 
-function getYesterdayYearFirst(UTCDate) {
-  const utc = new Date(new Date(UTCDate).valueOf() - 1000 * 60 * 60 * 24);
+  if (hasHourAndMinute) {
+    const hour = makeDoubleInteger(new Date(utc).getHours());
+    const minute = makeDoubleInteger(new Date(utc).getMinutes());
 
-  // prettier-ignore
-  return `${new Date(utc).getFullYear()}-${makeDoubleInteger(new Date(utc).getMonth() + 1)}-${makeDoubleInteger(new Date(utc).getDate())}`
-}
+    formattedDate = `${formattedDate} ${hourAndMinuteSeperator} ${hour}:${minute}`;
+  }
 
-function getTodayYearFirst(UTCDate) {
-  const utc = new Date(UTCDate).toUTCString();
-
-  // prettier-ignore
-  return `${new Date(utc).getFullYear()}-${makeDoubleInteger(new Date(utc).getMonth() + 1)}-${makeDoubleInteger(new Date(utc).getDate())}`
-}
-
-function getTomorrowYearFirst(UTCDate) {
-  const utc = new Date(UTCDate).toUTCString();
-
-  // prettier-ignore
-  return `${new Date(utc).getFullYear()}-${makeDoubleInteger(new Date(utc).getMonth() + 1)}-${makeDoubleInteger(new Date(utc).getDate() + 1)}`
-}
-
-export {
-  getDateFromISO,
-  getDateFromISOYearFirst,
-  getDateFromISOWithHourAndMinute,
-  getYesterdayYearFirst,
-  getTodayYearFirst,
-  getTomorrowYearFirst,
+  return formattedDate;
 };
+
+export const getDate = params => calculateDate(params);
+
+// prettier-ignore
+export const getYesterday = params => calculateDate({ ...params, date: new Date(params.date).valueOf() - ONE_DAY_AS_MILISECOND });
+
+// prettier-ignore
+export const getTomorrow = params => calculateDate({ ...params, date: new Date(params.date).valueOf() + ONE_DAY_AS_MILISECOND });
+
+//
+// EXAMPLE
+//
+// import { getDate } from '~/utils/getDate';
+//
+// methods: {
+//   getMyDate() {
+//     this.date = getDate({ date: ..., seperator: '/', hasHM: false, HMSeperator: '' })
+//     this.date = getDate({ date: ... })
+//   }
+// }
+//
