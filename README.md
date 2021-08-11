@@ -46,6 +46,9 @@ This is a starter template for NuxtJS (Vue.js) developers.
 ### Mixins
 - v-for Loop Key
 
+### Directives
+- Tooltip
+
 ### Built-in Utility Scripts
 - Common response check for api results (checkApiErrors)
 - fetchData
