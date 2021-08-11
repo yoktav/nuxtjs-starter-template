@@ -52,12 +52,12 @@ export default {
   plugins: [
     // Plugins
     '~/plugins/vueSelect/vueSelect.js',
-    '~/plugins/clipboard/clipboard.js',
     { src: '~/plugins/vueToasted/vueToasted.js', ssr: false },
     '~/plugins/veeValidate/veeValidate.js',
 
     // Mixins
     '~/mixins/forLoopkey.js',
+    '~/mixins/clipboard.js',
 
     // Directives
     '~/plugins/directives/tooltip/Tooltip.js',
