@@ -34,3 +34,16 @@ export const getYesterday = params => calculateDate({ ...params, date: new Date(
 
 // prettier-ignore
 export const getTomorrow = params => calculateDate({ ...params, date: new Date(params.date).valueOf() + ONE_DAY_AS_MILISECOND });
+
+//
+// EXAMPLE
+//
+// import { getDate } from '~/utils/getDate';
+//
+// methods: {
+//   getMyDate() {
+//     this.date = getDate({ date: ..., seperator: '/', hasHM: false, HMSeperator: '' })
+//     this.date = getDate({ date: ... })
+//   }
+// }
+//
