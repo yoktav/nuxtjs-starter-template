@@ -60,7 +60,7 @@ export default {
     '~/mixins/clipboard.js',
 
     // Directives
-    '~/plugins/directives/tooltip/Tooltip.js',
+    '~/directives/tooltip/Tooltip.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
