@@ -1,6 +1,6 @@
 const ONE_DAY_AS_MILISECOND = 1000 * 60 * 60 * 24;
 
-const makeDoubleInteger = date => `0${date}`.slice(-2);
+export const makeDoubleInteger = date => `0${date}`.slice(-2);
 
 const calculateDate = params => {
   let { date, seperator, hasHM: hasHourAndMinute, HMSeperator: hourAndMinuteSeperator } = params;
