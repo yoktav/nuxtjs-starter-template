@@ -10,19 +10,19 @@ This is a starter template for NuxtJS (Vue.js) developers.
 
 ### Packages
 - i18n
-- Vee validate
-- Copy to clipboard
 - Toast
-- Tippy tooltip
-- Vue Select
 - Axios
 - Apollo
-- GraphQL
 - Buttono
-- SVG Sprite
-- Jest configurations
-- Vue Test Utils
+- GraphQL
 - CKEditor
+- SVG Sprite
+- Vue Select
+- Vee Validate
+- Vue Test Utils
+- Tippy (Tooltip)
+- Copy to Clipboard
+- Jest Configurations
 
 ### Components
 - Alert
@@ -38,9 +38,9 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - VueSelect
 - DatePicker
 - FileUpload
-- PageLoading
 - RadioButton
 - VeeValidate
+- PageLoading
 - ToggleSwitch
 - EmbedResponsive
 
@@ -65,27 +65,27 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - ESLinter
 
 ### Editor
-- Text Alignment
-- Source Editing
-- General HTML Support
-- Indent
+- Link
 - Bold
-- Remove Format
-- BlockQuote
-- Font Color
+- Italic
+- Indent
+- Heading
 - Font Size
 - Highlight
-- Horizontal Line
-- Italic
-- StrikeTrough
-- Link
-- Superscript
 - Subscript
-- Heading
 - Underline
+- Font Color
+- Superscript
+- BlockQuote
+- StrikeTrough
+- Source Editing
+- Text Alignment
+- Horizontal Line
+- Remove Format
+- General HTML Support
 
-### Others
-- Custom error pages
+### Others
+- Custom Error Pages
 
 ## Build Setup
 
