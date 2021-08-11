@@ -43,6 +43,9 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Alert
 - Custom error pages
 
+### Mixins
+- v-for Loop Key
+
 ### Built-in Utility Scripts
 - Common response check for api results (checkApiErrors)
 - fetchData
