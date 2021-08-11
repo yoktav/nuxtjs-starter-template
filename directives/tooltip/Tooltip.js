@@ -18,7 +18,6 @@ function setOffset(offset) {
 
 Vue.directive('tooltip', {
   inserted: el => {
-    const { dataset } = el;
     const {
       tooltipAnimatefill,
       tooltipTheme,
@@ -28,7 +27,7 @@ Vue.directive('tooltip', {
       tooltipMaxwidth,
       tooltipOffset,
       tooltipHideMobile,
-    } = dataset;
+    } = el.dataset;
 
     const tooltip = tippy(el, {
       animateFill: tooltipAnimatefill ? tooltipAnimatefill === 'true' : true,
