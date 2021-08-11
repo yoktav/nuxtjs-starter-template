@@ -11,7 +11,7 @@
 
   $indicator-thickness: px-to-rem(5px);
   $indicator-color: $color-white;
-  $indicator-initial-color: $color-jacksons-purple;
+  $indicator-initial-color: $color-primary;
   $indicator-active-color: $color-white;
   $indicator-size: px-to-em(32px);
 
@@ -19,7 +19,7 @@
 
   $initial-background-color: rgba($color-white, 0.9);
   $initial-color: $color-primary;
-  $active-background-color: rgba($color-jacksons-purple, 0.9);
+  $active-background-color: rgba($color-primary, 0.9);
   $active-color: $color-white;
 
   position: relative;
