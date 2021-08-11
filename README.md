@@ -22,6 +22,7 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - SVG Sprite
 - Jest configurations
 - Vue Test Utils
+- CKEditor
 
 ### Components
 - Alert
@@ -44,7 +45,7 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - EmbedResponsive
 
 ### Mixins
-- v-for Loop Key
+- v-for Random Loop Key Generator
 - Clipboard
 
 ### Directives
