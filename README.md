@@ -26,25 +26,25 @@ This is a starter template for NuxtJS (Vue.js) developers.
 ### Components
 - Alert
 - Badge
-- Card
-- Button
-- Date Picker
-- File Upload
-- Header
-- Navbar
 - Input
 - Modal
-- Page loading
-- Radio button
-- Toggle switch
+- Button
+- Header
 - Navbar
-- Alert
-- Navbar
-- Alert
-- Custom error pages
+- Tooltip
+- BaseCard
+- VueSelect
+- DatePicker
+- FileUpload
+- PageLoading
+- RadioButton
+- VeeValidate
+- ToggleSwitch
+- EmbedResponsive
 
 ### Mixins
 - v-for Loop Key
+- Clipboard
 
 ### Directives
 - Tooltip
@@ -61,6 +61,9 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Stylelint
 - Prettier
 - ESLinter
+
+### Others
+- Custom error pages
 
 ## Build Setup
 
