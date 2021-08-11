@@ -29,6 +29,7 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Input
 - Modal
 - Button
+- Editor
 - Header
 - Navbar
 - Tooltip
@@ -61,6 +62,26 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Stylelint
 - Prettier
 - ESLinter
+
+### Editor
+- Text Alignment
+- Source Editing
+- General HTML Support
+- Indent
+- Bold
+- Remove Format
+- BlockQuote
+- Font Color
+- Font Size
+- Highlight
+- Horizontal Line
+- Italic
+- StrikeTrough
+- Link
+- Superscript
+- Subscript
+- Heading
+- Underline
 
 ### Others
 - Custom error pages
