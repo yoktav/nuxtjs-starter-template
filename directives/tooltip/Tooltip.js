@@ -8,7 +8,7 @@ function setOffset(offset) {
     return [0, 4]; // Initial value
   } else {
     return offset
-      .replace(/[[\]']+/g, '') // Replace `[` and `]`
+      .replace(/[[\]']+/g, '') // Remove `[` and `]`
       .split(',')
       .map(value => {
         return parseInt(value, 10);
