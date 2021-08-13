@@ -155,5 +155,6 @@ export default {
 </script>
 
 <style lang="scss">
+// Do not use it in scoped due to editor styles
 @import './Bubble';
 </style>
