@@ -29,6 +29,7 @@
     "@nuxtjs/svg-sprite": "^0.5.2",
     "buttono": "^1.0.2",
     "core-js": "^3.6.5",
+    "get-formatted-date": "^1.0.3",
     "graphql-tag": "^2.12.4",
     "nuxt": "^2.14.6",
     "nuxt-helper-json": "^1.0.0",

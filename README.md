@@ -14,6 +14,7 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Axios
 - Apollo
 - Buttono
+- getDate
 - GraphQL
 - CKEditor
 - SVG Sprite
@@ -38,33 +39,32 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - VueSelect
 - DatePicker
 - FileUpload
-- RadioButton
 - VeeValidate
+- RadioButton
 - PageLoading
 - ToggleSwitch
 - EmbedResponsive
 
 ### Mixins
-- v-for Random Loop Key Generator
 - Clipboard
-- checkEndpointErrors
 - routeNames
+- checkEndpointErrors
+- v-for Random Loop Key Generator
 
 ### Directives
 - Tooltip
 
 ### Built-in Utility Scripts
-- Common response check for endpoint (api, graphql...) results (checkEndpointErrors)
-- fetchData
 - sendData
+- fetchData
 - formatPrice
-- getDate
 - stripNonNumeric
+- Common response check for endpoint (api, graphql...) results (checkEndpointErrors)
 
 ### Linters
-- Stylelint
 - Prettier
 - ESLinter
+- Stylelint
 
 ### Editor
 - Link
