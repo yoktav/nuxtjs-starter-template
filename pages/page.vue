@@ -13,16 +13,8 @@
 </template>
 
 <script>
-import { ROUTE_NAMES } from '~/constants/routeNames';
-
 export default {
   layout: 'full',
-
-  data() {
-    return {
-      ROUTE_NAMES,
-    };
-  },
 
   mounted() {
     this.$nextTick(() => {

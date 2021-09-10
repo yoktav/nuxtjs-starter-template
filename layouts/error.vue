@@ -52,8 +52,6 @@
 </template>
 
 <script>
-import { ROUTE_NAMES } from '~/constants/routeNames';
-
 export default {
   layout: 'error',
 
@@ -62,12 +60,6 @@ export default {
       type: Object,
       default: null,
     },
-  },
-
-  data() {
-    return {
-      ROUTE_NAMES,
-    };
   },
 
   mounted() {

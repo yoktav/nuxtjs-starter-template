@@ -13,15 +13,7 @@
 </template>
 
 <script>
-import { ROUTE_NAMES } from '~/constants/routeNames';
-
 export default {
-  data() {
-    return {
-      ROUTE_NAMES,
-    };
-  },
-
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.finish();

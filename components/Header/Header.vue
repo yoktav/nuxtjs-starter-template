@@ -21,18 +21,6 @@
   </div>
 </template>
 
-<script>
-import { ROUTE_NAMES } from '~/constants/routeNames';
-
-export default {
-  data() {
-    return {
-      ROUTE_NAMES,
-    };
-  },
-};
-</script>
-
 <style lang="scss" scoped>
 @import './Header';
 </style>
