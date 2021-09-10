@@ -59,6 +59,7 @@ export default {
     '~/mixins/forLoopKey.js',
     '~/mixins/clipboard.js',
     '~/mixins/routeNames.js',
+    '~/mixins/checkEndpointErrors.js',
 
     // Directives
     '~/directives/tooltip/Tooltip.js',
