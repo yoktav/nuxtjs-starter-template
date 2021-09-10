@@ -52,7 +52,7 @@ This is a starter template for NuxtJS (Vue.js) developers.
 - Tooltip
 
 ### Built-in Utility Scripts
-- Common response check for api results (checkApiErrors)
+- Common response check for endpoint (api, graphql...) results (checkEndpointErrors)
 - fetchData
 - sendData
 - formatPrice
