@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueClipboard from 'vue-clipboard2';
 
-import { TOAST_OPTIONS } from '~/project-constants/global';
+import { TOAST_OPTIONS } from '~/constants/global';
 
 Vue.use(VueClipboard);
 

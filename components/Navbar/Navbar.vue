@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { ROUTE_NAMES } from '~/project-constants/routeNames';
+import { ROUTE_NAMES } from '~/constants/routeNames';
 
 export default {
   data() {

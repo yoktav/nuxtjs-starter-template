@@ -89,7 +89,7 @@ export default {
 
   i18n: {
     locales: [{ code: 'en', iso: 'en-US', file: 'en.js', dir: 'ltr' }],
-    langDir: 'project-constants/locales/',
+    langDir: 'constants/locales/',
     defaultLocale: 'en',
 
     detectBrowserLanguage: {

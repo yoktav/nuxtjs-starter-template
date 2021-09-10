@@ -1,4 +1,4 @@
-import { TOAST_OPTIONS } from '~/project-constants/global';
+import { TOAST_OPTIONS } from '~/constants/global';
 import { checkGraphQLRequestErrors } from './graphql';
 
 export { checkGraphQLRequestErrors };
@@ -37,7 +37,7 @@ export function checkApiRequestErrors(params) {
 // EXAMPLE
 //
 // import { fetchData } from '~/utils/fetchData';
-// import { TOAST_OPTIONS } from '~/project-constants/global';
+// import { TOAST_OPTIONS } from '~/constants/global';
 //
 // methods: {
 //   async login() {
