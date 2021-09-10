@@ -47,6 +47,8 @@ This is a starter template for NuxtJS (Vue.js) developers.
 ### Mixins
 - v-for Random Loop Key Generator
 - Clipboard
+- checkEndpointErrors
+- routeNames
 
 ### Directives
 - Tooltip
