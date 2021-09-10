@@ -13,7 +13,7 @@
 // </client-only>
 //
 
-import BalloonEditor from './build/ckeditor';
+import BalloonEditor from '~/libs/CKEditor/build/ckeditor';
 
 export default {
   props: {

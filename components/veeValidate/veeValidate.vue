@@ -13,12 +13,10 @@
       <br /><br />
 
       <ValidationProvider v-slot="{ errors }" name="Input" rules="required" tag="div">
-        <Input
-          :id="24"
+        <FormInput
           v-model="InputVModel"
           :is-invalid="errors.length > 0"
           tag="input"
-          input-element="input"
           input-type="text"
           :has-label-text="true"
           :label-text="'Custom label'"
