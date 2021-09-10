@@ -1,4 +1,3 @@
-import { TOAST_OPTIONS } from '~/constants/global';
 import { checkGraphQLRequestErrors } from './graphql';
 
 export { checkGraphQLRequestErrors };
@@ -12,10 +11,7 @@ export function checkApiResponseErrors(params) {
 
   if (process.env.NUXT_ENV_MODE == 'development') console.log(response);
 
-  that.$toast.warning(
-    `An error occurred (${response.status} - ${response.statusText})`,
-    TOAST_OPTIONS,
-  );
+  that.$toast.warning(`An error occurred (${response.status} - ${response.statusText})`);
 
   return true;
 }
@@ -37,7 +33,6 @@ export function checkApiRequestErrors(params) {
 // EXAMPLE
 //
 // import { fetchData } from '~/utils/fetchData';
-// import { TOAST_OPTIONS } from '~/constants/global';
 //
 // methods: {
 //   async login() {
@@ -46,7 +41,7 @@ export function checkApiRequestErrors(params) {
 //
 //       if (this.checkApiResponseErrors({ that: this, response })) return;
 //
-//       this.$toast.success('Successfully logged in', TOAST_OPTIONS);
+//       this.$toast.success('Successfully logged in');
 //     } catch (error) {
 //       this.checkApiRequestErrors({ that: this, error });
 //     }
