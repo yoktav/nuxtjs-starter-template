@@ -1,3 +1,9 @@
+//
+// In order to fix cache problem, we are adding a random number for every build
+// [contenthash] generates for changes, but Math.random() generates for every build
+//
+const version = Math.random();
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
 
@@ -118,5 +124,16 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['vee-validate/dist/rules'],
+    analyze: false, // true || false
+    filenames: {
+      app: ({ isDev, isModern }) =>
+        isDev ? `[name]${isModern ? '.modern' : ''}.js` : `[contenthash:7]${isModern ? '.modern' : ''}.${version}.js`,
+      chunk: ({ isDev, isModern }) =>
+        isDev ? `[name]${isModern ? '.modern' : ''}.js` : `[contenthash:7]${isModern ? '.modern' : ''}.${version}.js`,
+      css: ({ isDev }) => (isDev ? '[name].css' : `css/[contenthash:7].${version}.css`),
+      img: ({ isDev }) => (isDev ? '[path][name].[ext]' : `img/[name].[contenthash:7].${version}.[ext]`),
+      font: ({ isDev }) => (isDev ? '[path][name].[ext]' : `fonts/[name].[contenthash:7].${version}.[ext]`),
+      video: ({ isDev }) => (isDev ? '[path][name].[ext]' : `videos/[name].[contenthash:7].${version}.[ext]`),
+    },
   },
 };
