@@ -13,7 +13,7 @@
 // </client-only>
 //
 
-import BalloonEditor from './build/ckeditor';
+import BalloonEditor from '~/libs/CKEditor/build/ckeditor';
 
 export default {
   props: {
@@ -155,5 +155,6 @@ export default {
 </script>
 
 <style lang="scss">
+// Do not use it in scoped due to editor styles
 @import './Bubble';
 </style>

@@ -1,0 +1,131 @@
+@import '~assets/styles/abstracts/index';
+
+.c-input {
+  $animation-duration: 1.5s;
+
+  $states: (valid, $color-success, pulse-valid), (invalid, $color-danger, pulse-invalid),
+    (warning, $color-warning, pulse-warning);
+
+  position: relative;
+  display: block;
+
+  &__text {
+    transition: color $g-transition-duration ease-in-out;
+  }
+
+  &__toggle-type {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: $g-text-color;
+    cursor: pointer;
+    fill: currentColor;
+    transform: translate3d(0, -50%, 0);
+
+    &::after {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: 120%;
+      border: 1px solid currentColor;
+      content: '';
+      transform: translate3d(-50%, -50%, 0) rotate(-24deg) scale(0);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  @each $state-name, $state-color, $state-animation-name in $states {
+    &.is-#{$state-name} {
+      .c-input__text {
+        color: $state-color;
+      }
+
+      .c-input__control {
+        animation: $state-animation-name $animation-duration;
+        border-color: $state-color;
+        color: $state-color;
+
+        // stylelint-disable-next-line selector-max-specificity
+        &::placeholder {
+          color: $state-color;
+        }
+      }
+    }
+  }
+
+  &.is-type-toggled {
+    .c-input__toggle-type {
+      // stylelint-disable-next-line selector-max-specificity
+      &::after {
+        transform: translate3d(-50%, -50%, 0) rotate(-24deg) scale(1);
+      }
+    }
+  }
+}
+
+// stylelint-disable-next-line no-duplicate-selectors
+.c-input__control {
+  @import 'input-mixins';
+
+  $transition-duration: $g-transition-duration;
+  $transition-timing-function: $g-transition-timing-function;
+
+  $c-input-font-family: null !default;
+  $c-input-bg-color: transparent !default;
+  $c-input-bg-color-disabled: null !default;
+  $c-input-color: rgba($g-text-color, 0.9) !default;
+  $c-input-color-placeholder: rgba($g-text-color, 0.7) !default;
+  $c-input-border-color: $g-border-color !default;
+  $c-input-border-width: 1px !default;
+  $c-input-border-radius: 0 !default;
+  $c-input-border-focus: null !default;
+  $c-input-font-size: px-to-em(14px) !default;
+  $c-input-line-height: 1 !default;
+  $c-input-padding-vertical: pad(2xsmall);
+  $c-input-padding-horizontal: pad(4xsmall);
+  // Removed border width to stick with design
+  $c-input-height-base: px-to-rem(37px) !default;
+  $animation-duration: 1.5s;
+
+  @include form-control-block();
+  @include form-control-modifier();
+
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  font-weight: 600;
+  transition: border-color $transition-duration $transition-timing-function,
+    color $transition-duration $transition-timing-function;
+
+  &::placeholder {
+    transition: color $transition-duration $transition-timing-function;
+  }
+
+  //
+  // Elements
+  // -------------------------
+
+  &:focus {
+    border-color: $color-white;
+    outline: none;
+  }
+
+  &[disabled] {
+    background-color: $c-input-bg-color-disabled;
+    opacity: 0.5;
+  }
+
+  //
+  // Modifiers
+  // -------------------------
+
+  &--toggle-type {
+    padding-right: pad();
+  }
+
+  &--textarea {
+    overflow: auto; // Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+    height: auto;
+    resize: vertical; // Options: horizontal, vertical, both
+  }
+}

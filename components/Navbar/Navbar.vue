@@ -28,18 +28,6 @@
   </nav>
 </template>
 
-<script>
-import { ROUTE_NAMES } from '~/project-constants/routeNames';
-
-export default {
-  data() {
-    return {
-      ROUTE_NAMES,
-    };
-  },
-};
-</script>
-
 <style lang="scss" scoped>
 @import './Navbar';
 </style>
