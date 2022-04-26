@@ -1,0 +1,4 @@
+# Ignore JS files in pages directory,
+# Pages only created with vue extension in pages directory,
+# Some mixins created with js extension in pages directory
+pages/**/*.js
