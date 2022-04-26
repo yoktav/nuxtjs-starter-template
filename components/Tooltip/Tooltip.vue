@@ -6,7 +6,7 @@
 
 <script>
 import tippy, { animateFill } from 'tippy.js';
-import { MOBILE_THRESHOLD_VALUE } from '~/constants/breakpoints';
+import { MOBILE_THRESHOLD_VALUE } from '~/constants/project/breakpoints';
 
 export default {
   props: {

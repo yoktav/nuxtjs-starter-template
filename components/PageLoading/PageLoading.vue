@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { LOADING_SCREEN_MIN_DURATION } from '~/constants/global';
+import { LOADING_SCREEN_MIN_DURATION } from '~/constants/project/global';
 
 export default {
   data() {

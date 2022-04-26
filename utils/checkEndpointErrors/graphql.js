@@ -2,7 +2,7 @@
 // Helper Functions
 //
 
-import { ROUTE_NAMES } from '~/constants/routeNames';
+import { ROUTE_NAMES } from '~/constants/project/route-names';
 import { GRAPHQL_ERROR_MESSAGES } from '~/graphql/errors';
 
 function checkUnauthorized(params) {

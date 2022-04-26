@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import tippy, { animateFill } from 'tippy.js';
-import { MOBILE_THRESHOLD_VALUE } from '~/constants/breakpoints';
+import { MOBILE_THRESHOLD_VALUE } from '~/constants/project/breakpoints';
 import './Tooltip.scss';
 
 function setOffset(offset) {
