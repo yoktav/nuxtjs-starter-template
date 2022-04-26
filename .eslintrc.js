@@ -5,17 +5,12 @@ module.exports = {
     node: true,
     browser: true,
   },
-  extends: [
-    'plugin:vue/recommended',
-    'eslint:recommended',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier/vue', 'plugin:prettier/recommended'],
   rules: {
     'prettier/prettier': [
       'error',
       {
-        printWidth: 100,
+        printWidth: 140,
         singleQuote: true,
         trailingComma: 'all',
         arrowParens: 'avoid',
