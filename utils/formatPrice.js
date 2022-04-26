@@ -57,3 +57,11 @@ export function formatPriceForDB(params = '') {
   // Transform type to Number
   return parseInt(`${priceWithoutTwoChar}.${lastTwoChar}`, 10);
 }
+
+// In some cases balance is used for if statements (e.g. does user has balance and balance is higher than 1000)
+// Since 0 and 1 is equals to false and true, sometimes X statements do not work as expected
+export function checkBalanceIsValid(params = {}) {
+  const { balance } = params;
+
+  return balance == 0 ? '0' : balance;
+}
