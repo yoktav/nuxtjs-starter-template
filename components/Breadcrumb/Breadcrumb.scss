@@ -1,0 +1,31 @@
+@import '~assets/styles/abstracts/index';
+
+.c-breadcrumb {
+  @include list-unstyled($margin-bottom: 0);
+
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+
+  &__item {
+    font-size: $g-font-size-small;
+    font-weight: 600;
+
+    &--home {
+      font-size: $g-font-size-xlarge;
+    }
+  }
+
+  &__icon {
+    margin-right: gap(3xsmall);
+    margin-left: gap(3xsmall);
+    color: $color-secondary;
+    font-size: $g-font-size-small;
+  }
+
+  &__link {
+    &.nuxt-link-exact-active {
+      color: $color-secondary;
+    }
+  }
+}
