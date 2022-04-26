@@ -1,5 +1,7 @@
 // For detailed info https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat
 
+import { stripNonNumeric } from './stripNonNumeric';
+
 export function formatPrice(params) {
   let { price, currencyDisplay, signDisplay, showCurrency, locale = 'tr-TR', currency = 'TRY', moveSymbolToEnd = true } = params;
 
@@ -37,4 +39,10 @@ export function formatPrice(params) {
   }
 
   return formattedPrice;
+}
+
+export function comparePrices(params) {
+  let { baseValue, maxValue } = params;
+
+  return Number(stripNonNumeric(baseValue)) > Number(stripNonNumeric(maxValue));
 }
