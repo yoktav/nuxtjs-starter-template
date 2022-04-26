@@ -37,6 +37,7 @@
     "nuxt-helper-json": "^1.0.0",
     "nuxt-i18n": "^6.27.1",
     "nuxt-lazy-load": "^1.2.4",
+    "stylelint-declaration-strict-value": "^1.7.12",
     "remove": "^0.1.5",
     "tippy.js": "^6.3.1",
     "vee-validate": "^3.4.5",
