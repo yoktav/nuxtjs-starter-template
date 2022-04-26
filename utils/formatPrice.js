@@ -46,3 +46,14 @@ export function comparePrices(params) {
 
   return Number(stripNonNumeric(baseValue)) > Number(stripNonNumeric(maxValue));
 }
+
+export function formatPriceForDB(params = '') {
+  const decimalCount = 2;
+
+  const price = stripNonNumeric(params);
+  const lastTwoChar = price.slice(-decimalCount);
+  const priceWithoutTwoChar = price.slice(0, -decimalCount);
+
+  // Transform type to Number
+  return parseInt(`${priceWithoutTwoChar}.${lastTwoChar}`, 10);
+}
