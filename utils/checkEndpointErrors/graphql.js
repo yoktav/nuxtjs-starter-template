@@ -2,6 +2,9 @@
 // Helper Functions
 //
 
+import { ROUTE_NAMES } from '~/constants/routeNames';
+import { GRAPHQL_ERROR_MESSAGES } from '~/graphql/errors';
+
 function checkUnauthorized(params) {
   const { that, error } = params;
 
@@ -16,7 +19,7 @@ function checkUnauthorized(params) {
     return true;
   }
 
-  return false
+  return false;
 }
 
 function showErrors(params) {
