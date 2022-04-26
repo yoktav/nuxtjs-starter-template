@@ -42,7 +42,7 @@
     "tippy.js": "^6.3.1",
     "vee-validate": "^3.4.5",
     "vue-clipboard2": "^0.3.1",
-    "vue-select": "^3.11.2",
+    "vue-select": "^3.16.0",
     "vue-toast-notification": "^0.6.1",
     "vue2-datepicker": "^3.9.0"
   },
