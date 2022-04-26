@@ -27,7 +27,7 @@
     "@ckeditor/ckeditor5-build-classic": "^29.1.0",
     "@ckeditor/ckeditor5-vue2": "^1.0.5",
     "@nuxtjs/apollo": "^4.0.1-rc.5",
-    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/svg-sprite": "^0.5.2",
     "buttono": "^1.0.2",
     "core-js": "^3.6.5",
