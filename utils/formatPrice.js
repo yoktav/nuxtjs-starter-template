@@ -1,13 +1,10 @@
 // For detailed info https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat
 
 export function formatPrice(params) {
-  let { price, moveSymbolToEnd, locale, currency, currencyDisplay, signDisplay, showCurrency } =
-    params;
+  let { price, currencyDisplay, signDisplay, showCurrency, locale = 'tr-TR', currency = 'TRY', moveSymbolToEnd = true } = params;
 
   if (Number.isNaN(price)) return '0,00';
 
-  if (locale == undefined) locale = 'tr-TR';
-  if (currency == undefined) currency = 'TRY';
   if (currencyDisplay == undefined) currencyDisplay = 'symbol'; // name | symbol | narrowSymbol | code
   if (showCurrency == undefined) showCurrency = 'currency'; // decimal | currency | percent | unit
 
