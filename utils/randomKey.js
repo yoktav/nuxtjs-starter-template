@@ -1,4 +1,4 @@
-export function randomKey() {
+function randomKey() {
   // To get a unique number Math.random should be used,
   // Then convert it to base 16 (numbers + letters),
   // And grab the characters after the decimal
@@ -6,3 +6,5 @@ export function randomKey() {
 
   return key;
 }
+
+export { randomKey };
