@@ -1,3 +1,4 @@
+import { BREADCRUMBS } from './breadcrumbs';
 import { ROUTE_NAMES } from './route-names';
 
 export const DEFAULT_TITLE = {
@@ -9,4 +10,4 @@ export const DEFAULT_DESCRIPTION = {
   DESCRIPTION: DEFAULT_TITLE.TITLE,
 };
 
-export { ROUTE_NAMES };
+export { BREADCRUMBS, ROUTE_NAMES };
