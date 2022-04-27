@@ -16,6 +16,8 @@
 import { BREADCRUMBS } from '~/constants/routes';
 
 export default {
+  layout: 'page',
+
   data() {
     return {
       BREADCRUMBS,

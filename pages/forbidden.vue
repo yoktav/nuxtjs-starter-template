@@ -4,6 +4,8 @@
 
 <script>
 export default {
+  layout: 'page',
+
   head() {
     return this.ROUTE_NAMES.FORBIDDEN.META;
   },
