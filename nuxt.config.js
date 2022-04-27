@@ -57,9 +57,9 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     // Plugins
+    '~/plugins/vee-validate.js',
     '~/plugins/vueSelect/vueSelect.js',
     { src: '~/plugins/vueToasted/vueToasted.js', ssr: false },
-    '~/plugins/veeValidate/veeValidate.js',
 
     // Mixins
     '~/mixins/forLoopKey.js',
