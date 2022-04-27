@@ -1,110 +1,82 @@
 <template>
-  <label
-    :class="[
-      'c-input',
-      isValid ? 'is-valid' : null,
-      isInvalid ? 'is-invalid' : null,
-      isWarning ? 'is-warning' : null,
-    ]"
-  >
-    <div v-if="hasLabelText" class="c-input__text">{{ labelText }}</div>
-
+  <label :class="['c-input', { 'is-valid': isValid }, { 'is-filled': isFilled }, { 'is-invalid': isInvalid }, { 'is-warning': isWarning }]">
     <textarea
-      :id="id ? `input-${id}` : false"
-      ref="input"
-      v-model="textareaValue"
+      v-model="formValue"
       class="c-input__control c-input__control--textarea"
-      :maxlength="maxlength ? maxlength : false"
-      :name="name ? name : false"
-      :placeholder="placeholder ? placeholder : false"
-      :disabled="isDisabled"
-      :readonly="isReadonly"
-      :rows="rows ? rows : false"
-      @change="$emit('input', $event.target.value)"
+      v-bind="attributes"
+      @[eventHandlerName]="$emit('input', formValue)"
     />
+
+    <span v-if="hasLabel" class="c-input__label">
+      <span>
+        <slot />
+      </span>
+    </span>
   </label>
 </template>
 
 <script>
+import { PROP_TYPE_ARRAY, PROP_TYPE_BOOLEAN, PROP_TYPE_NUMBER_STRING, PROP_TYPE_STRING } from '~/constants/props';
+
 export default {
   props: {
-    tag: {
-      type: String,
-      default: 'input',
-      required: true,
-    },
-    rows: {
-      type: String,
-      default: '',
-    },
-    id: {
-      type: Number,
-      default: null,
-    },
-    name: {
-      type: String,
+    attributes: {
+      type: PROP_TYPE_ARRAY,
       default: null,
     },
     value: {
-      type: String,
+      type: PROP_TYPE_NUMBER_STRING,
       default: null,
     },
-    placeholder: {
-      type: String,
-      default: null,
+    eventHandlerName: {
+      type: PROP_TYPE_STRING,
+      default: 'change',
     },
-    hasLabelText: {
-      type: Boolean,
-      default: false,
-    },
-    labelText: {
-      type: String,
-      default: null,
-    },
-    maxlength: {
-      type: String,
-      default: null,
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    isReadonly: {
-      type: Boolean,
-      default: false,
+    hasLabel: {
+      type: PROP_TYPE_BOOLEAN,
+      default: true,
     },
     isValid: {
-      type: Boolean,
+      type: PROP_TYPE_BOOLEAN,
       default: false,
     },
     isInvalid: {
-      type: Boolean,
+      type: PROP_TYPE_BOOLEAN,
       default: false,
     },
     isWarning: {
-      type: Boolean,
+      type: PROP_TYPE_BOOLEAN,
       default: false,
     },
   },
 
   data() {
     return {
-      FILLED_CLASS: 'is-filled',
-
-      textareaValue: '',
+      formValue: '',
+      isFilled: false,
     };
   },
 
   watch: {
-    value: {
-      handler() {
-        this.$emit('input', this.textareaValue);
-      },
+    value() {
+      this.$nextTick(() => {
+        this.formValue = this.value;
+
+        this.makeInputFilled();
+      });
     },
   },
 
   mounted() {
-    this.textareaValue = this.value;
+    this.formValue = this.value;
+
+    this.makeInputFilled();
+  },
+
+  methods: {
+    makeInputFilled() {
+      this.isFilled = this.formValue && this.formValue.length != 0;
+    },
   },
 };
 </script>

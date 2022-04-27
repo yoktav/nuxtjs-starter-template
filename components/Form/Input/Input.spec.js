@@ -1,4 +1,4 @@
-import { mount, createLocalVue, shallowMount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import Input from './Input.vue';
 
 describe('Input.vue component', () => {
@@ -151,9 +151,7 @@ describe('Input.vue component', () => {
         },
       });
 
-      expect(wrapper.find('.c-input__control').classes()).not.toContain(
-        'c-input__control--textarea',
-      );
+      expect(wrapper.find('.c-input__control').classes()).not.toContain('c-input__control--textarea');
     });
 
     it('Check if inputElement is not input', () => {

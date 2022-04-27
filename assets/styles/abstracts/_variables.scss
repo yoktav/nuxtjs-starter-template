@@ -242,6 +242,16 @@ $z-index-c-modal: 9;
 $z-index-c-modal-background: $z-index-c-modal - 2;
 $z-index-c-modal-container: $z-index-c-modal - 1;
 
+// Form
+$z-index-c-input-control: 1;
+$z-index-c-input-label: $z-index-c-input-control + 1;
+$z-index-c-input-toggle-type: $z-index-c-input-label + 2;
+$z-index-c-checkbox-icon: 1;
+
+// Selectbox
+$z-index-c-selectbox-dropdown-menu: 11; // Must be grater than Modal z-index
+$z-index-c-selectbox-dropdown-menu-option-before: -1;
+
 //
 // Other z-indexes
 //

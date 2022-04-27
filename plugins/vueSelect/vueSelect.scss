@@ -1,67 +1,252 @@
 @import '~/node_modules/vue-select/dist/vue-select.css';
 @import '~assets/styles/abstracts/index';
+@import '~/components/Form/variables';
 
-//
-// Mixins
-//
-
-@mixin vue-select-state($state-color) {
-  .vs__dropdown-toggle {
-    border-color: $state-color;
-  }
-
-  .vs__selected,
-  .vs__search {
-    color: $state-color;
-
-    &::placeholder {
-      color: $state-color;
-    }
-  }
+.v-select-wrapper {
+  display: block;
 }
 
-//
-// Styles
-//
-
 .v-select {
-  .vs__dropdown-toggle {
-    border: 2px solid $g-border-color; //stylelint-disable-line meowtec/no-px
-    border-radius: px-to-rem(8px);
-  }
-
-  .vs__dropdown-option--highlight {
-    background-color: rgba($color-primary, 0.1);
-    color: $color-primary;
-  }
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: $input-min-width;
+  margin: $label-safe-area-gap 0; // Add this to create safe area for label
+  border-radius: $input-border-radius;
+  white-space: nowrap;
 
   .vs__clear,
   .vs__spinner,
   .vs__open-indicator {
-    fill: $g-border-color;
+    fill: $input-action-button-color;
   }
 
   .vs__selected,
   .vs__search {
-    padding-top: pad(4xsmall);
-    padding-bottom: pad(4xsmall);
-    color: $g-text-color;
-    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border-color: transparent;
+    color: inherit;
+    line-height: 1.2;
 
     &::placeholder {
-      color: rgba($g-text-color, 0.7);
+      color: $input-placeholder-color;
     }
   }
 
-  &.is-valid {
-    @include vue-select-state($state-color: $color-success);
+  .vs__selected {
+    position: static !important; // stylelint-disable-line declaration-no-important
   }
 
-  &.is-invalid {
-    @include vue-select-state($state-color: $color-danger);
+  .vs__dropdown-toggle {
+    min-height: $control-height;
+    padding: 0 0 0 $control-padding-sides;
+    border: $control-border-width solid $control-border-color;
+    background-color: $control-background-color;
+    background-image: none;
+    border-radius: $input-border-radius;
+    color: $input-color;
+    font-size: $input-font-size;
+    font-weight: $input-font-weight;
+    line-height: 2;
+    outline: 0;
+    transition: border-color 0.2s, border-radius 0.2s;
+
+    @if not($control-box-shadow == null) {
+      box-shadow: $control-box-shadow;
+    }
   }
 
-  &.is-warning {
-    @include vue-select-state($state-color: $color-warning);
+  .vs__dropdown-menu {
+    max-width: none;
+  }
+
+  .vs__dropdown-option {
+    max-width: none;
+  }
+
+  &.vs--open {
+    .vs__dropdown-toggle {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .vs__actions {
+    padding: 0 $input-action-button-inital-right-value 0 0;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity $g-transition-duration ease;
+  }
+
+  .vs__deselect {
+    fill: $input-action-button-color;
+  }
+
+  .vs__selected-options {
+    width: 90%; // 10% is for vs__actions
+    padding: pad(4xsmall) 0; // Add 0 to reset inherited (from package) horizontal padding
+  }
+
+  .vs__search {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @each $state-name, $state-color, $state-animation-name in $input-states {
+    &.is-#{$state-name} {
+      animation: $state-animation-name $input-state-animation-duration;
+      border-color: $state-color;
+
+      .vs__dropdown-toggle {
+        border-color: $state-color !important; // stylelint-disable-line  declaration-no-important
+      }
+
+      .v-select__label {
+        color: $state-color;
+      }
+
+      .vs__selected,
+      .vs__search {
+        color: $state-color;
+
+        // stylelint-disable-next-line selector-max-specificity
+        &::placeholder {
+          color: $state-color;
+        }
+      }
+    }
+  }
+
+  &__label {
+    @include input-label-create;
+    @include input-dynamic-height;
+
+    &--hidden {
+      // This is a customized styles of visually-hidden mixin
+
+      position: static;
+      overflow: hidden;
+      height: 1px;
+      padding-right: $control-padding-sides;
+      padding-left: $control-padding-sides;
+      clip: rect(0, 0, 0, 0);
+      opacity: 0;
+      white-space: nowrap;
+    }
+  }
+
+  &.is-filled,
+  &.vs--open {
+    .vs__actions {
+      opacity: 1;
+    }
+
+    .vs__dropdown-toggle {
+      border-color: $control-active-border-color;
+    }
+
+    .v-select__label {
+      @include input-label-active;
+    }
+  }
+}
+
+.vs__dropdown-menu {
+  z-index: $z-index-c-selectbox-dropdown-menu !important; // stylelint-disable-line  declaration-no-important
+  min-width: fit-content;
+  max-width: $selectbox-append-to-body-max-width;
+  border: $selectbox-dropdown-menu-border;
+  border-top: 0;
+  background-color: $control-background-color;
+  box-shadow: $selectbox-dropdown-menu-box-shadow;
+}
+
+.vs__dropdown-option {
+  position: relative;
+  max-width: $selectbox-append-to-body-max-width;
+  color: $selectbox-dropdown-option-color;
+  white-space: normal;
+
+  &::before {
+    $g-transition-duration: 0.1s;
+    position: absolute;
+    z-index: $z-index-c-selectbox-dropdown-menu-option-before;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: lighten($color-mischka, 5%);
+    content: '';
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+    transition: transform $g-transition-duration $g-transition-timing-function, opacity $g-transition-duration $g-transition-timing-function;
+  }
+
+  &--highlight {
+    background-color: $selectbox-dropdown-highlighted-option-background-color;
+    color: $selectbox-dropdown-highlighted-option-color;
+
+    &::before {
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0) scale(1);
+    }
+  }
+
+  &--disabled {
+    background-color: $selectbox-dropdown-disabled-option-background-color;
+    color: $selectbox-dropdown-disabled-option-color;
+  }
+}
+
+.vs--disabled {
+  .vs__clear,
+  .vs__dropdown-toggle,
+  .vs__open-indicator,
+  .vs__search,
+  .vs__selected {
+    background-color: transparent;
+  }
+
+  .vs__dropdown-toggle {
+    background-color: $control-disabled-background-color;
+    border-color: $control-disabled-border-color !important; // stylelint-disable-line declaration-no-important
+    opacity: $input-disabled-opacity;
+  }
+
+  &:not(.is-filled) .v-select__label {
+    background-color: transparent;
+  }
+}
+
+.v-select[readonly] {
+  cursor: not-allowed;
+
+  .vs__actions {
+    display: none;
+  }
+
+  .vs__dropdown-toggle {
+    pointer-events: none;
+  }
+}
+
+.vs--multiple {
+  .vs__dropdown-toggle {
+    min-height: auto !important; // stylelint-disable-line declaration-no-important
+  }
+
+  .vs__selected-options {
+    padding: px-to-rem(6px);
+  }
+
+  .vs__selected {
+    padding: pad(5xsmall);
+    margin: gap(4xsmall);
+    border-color: $control-active-border-color;
+    font-size: $input-font-size - px-to-em(4px);
   }
 }

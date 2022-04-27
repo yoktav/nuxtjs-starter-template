@@ -2,103 +2,116 @@
   <label
     :class="[
       'c-input',
-      isValid ? 'is-valid' : null,
-      isInvalid ? 'is-invalid' : null,
-      isWarning ? 'is-warning' : null,
+      { 'is-valid': isValid },
+      { 'is-filled': isFilled },
+      { 'is-invalid': isInvalid },
+      { 'is-warning': isWarning },
+      { 'has-expand-on-focus': expandOnFocus },
     ]"
   >
-    <div v-if="hasLabelText" class="c-input__text">{{ labelText }}</div>
-
-    <component
-      :is="tag"
-      :id="id ? `input-${id}` : false"
+    <input
       ref="input"
-      :type="inputType"
       class="c-input__control"
-      :maxlength="maxlength ? maxlength : false"
-      :name="name ? name : false"
-      :value="value ? value : false"
-      :placeholder="placeholder ? placeholder : false"
-      :disabled="isDisabled"
-      :readonly="isReadonly"
-      @change="$emit('input', $event.target.value)"
+      :value="value ? value : null"
+      v-bind="attributes"
+      @[eventHandlerName]="$emit('input', $event.target.value)"
     />
+
+    <span v-if="hasLabel" class="c-input__label">
+      <span>
+        <slot />
+      </span>
+    </span>
   </label>
 </template>
 
 <script>
+import { PROP_TYPE_ARRAY, PROP_TYPE_BOOLEAN, PROP_TYPE_NUMBER_STRING, PROP_TYPE_STRING } from '~/constants/props';
+import { formatPrice } from '~/utils/formatPrice';
+import { maskPhone } from '~/utils/mask';
+import { stripNonNumericWithoutComma } from '~/utils/stripNonNumeric';
+
 export default {
   props: {
-    tag: {
-      type: String,
-      default: 'input',
-      required: true,
-    },
-    inputType: {
-      type: String,
-      default: 'text',
-    },
-    id: {
-      type: Number,
-      default: null,
-    },
-    name: {
-      type: String,
+    attributes: {
+      type: PROP_TYPE_ARRAY,
       default: null,
     },
     value: {
-      type: String,
+      type: PROP_TYPE_NUMBER_STRING,
       default: null,
     },
-    placeholder: {
-      type: String,
-      default: null,
+    eventHandlerName: {
+      type: PROP_TYPE_STRING,
+      default: 'change',
     },
-    hasLabelText: {
-      type: Boolean,
-      default: false,
-    },
-    labelText: {
-      type: String,
-      default: null,
-    },
-    maxlength: {
-      type: String,
-      default: null,
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    isReadonly: {
-      type: Boolean,
-      default: false,
+    hasLabel: {
+      type: PROP_TYPE_BOOLEAN,
+      default: true,
     },
     isValid: {
-      type: Boolean,
+      type: PROP_TYPE_BOOLEAN,
       default: false,
     },
     isInvalid: {
-      type: Boolean,
+      type: PROP_TYPE_BOOLEAN,
       default: false,
     },
     isWarning: {
-      type: Boolean,
+      type: PROP_TYPE_BOOLEAN,
       default: false,
+    },
+    expandOnFocus: {
+      type: PROP_TYPE_BOOLEAN,
+      default: false,
+    },
+    format: {
+      type: PROP_TYPE_STRING,
+      default: 'input',
     },
   },
 
   data() {
     return {
-      FILLED_CLASS: 'is-filled',
+      isFilled: false,
     };
   },
 
   watch: {
-    value: {
-      handler() {
-        this.$refs.input.value = this.value;
-      },
+    value() {
+      this.$nextTick(() => {
+        this.checkFormatValue();
+
+        this.makeInputFilled();
+      });
+    },
+  },
+
+  mounted() {
+    this.checkFormatValue();
+    this.makeInputFilled();
+
+    setTimeout(() => {
+      this.makeInputFilled();
+    }, 750);
+  },
+
+  methods: {
+    makeInputFilled() {
+      this.isFilled = this.$refs.input?.value.length != 0;
+    },
+
+    checkFormatValue() {
+      if (!this.value) return;
+
+      if (this.format == 'price') {
+        this.$emit(
+          'input',
+          formatPrice({ price: stripNonNumericWithoutComma(this.value.toString()).replace(',', '.'), moveSymbolToEnd: false }),
+        );
+      } else if (this.format == 'phone') {
+        this.$emit('input', maskPhone(this.value));
+      }
     },
   },
 };

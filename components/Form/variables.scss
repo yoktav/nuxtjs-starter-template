@@ -1,0 +1,91 @@
+@import '~assets/styles/abstracts/index';
+
+$input-color: $g-text-color;
+$input-placeholder-color: $input-color;
+$input-border-radius: px-to-rem(10px);
+$input-font-size: px-to-em(18px);
+$input-font-weight: 400;
+$input-min-width: px-to-rem(120px);
+
+$input-expand-on-focus-max-width-initial: px-to-rem(136px);
+$input-expand-on-focus-max-width-expanded: px-to-rem(224px);
+
+$input-disabled-opacity: 0.6;
+$input-state-animation-duration: 1.5s;
+$input-states: (valid, $color-success, pulse-valid), (invalid, $color-danger, pulse-invalid), (warning, $color-warning, pulse-warning);
+
+$label-safe-area-gap: px-to-rem(0);
+$control-height: px-to-rem(52px);
+$control-background-color: $g-body-background-color;
+$control-disabled-background-color: darken($g-body-background-color, 6%);
+
+$control-border-width: px-to-rem(2px);
+$control-border-color: transparent;
+$control-active-border-color: $color-mischka;
+$control-disabled-border-color: transparent;
+$control-padding-sides: px-to-rem(20px);
+$control-box-shadow: null;
+
+$selectbox-dropdown-menu-box-shadow: 0 px-to-rem(12px) px-to-rem(12px) px-to-rem(0) rgba($color-mercury, 2%);
+$selectbox-dropdown-menu-border: 0;
+
+$selectbox-append-to-body-max-width: 500px; // stylelint-disable-line meowtec/no-px
+$selectbox-dropdown-option-color: $input-color;
+$selectbox-dropdown-highlighted-option-color: $color-primary;
+$selectbox-dropdown-highlighted-option-background-color: transparent;
+$selectbox-dropdown-disabled-option-color: $input-color;
+$selectbox-dropdown-disabled-option-background-color: $color-mischka;
+
+$label-color: $input-placeholder-color;
+$label-background-color: $control-background-color;
+$label-padding-sides: $control-padding-sides / 3;
+
+$input-action-button-color: $input-color;
+$input-action-button-inital-right-value: px-to-rem(10px);
+
+$checkbox-square-box-shadow: null;
+$checkbox-square-dimension: px-to-em(22px);
+$checkbox-square-border-width: px-to-em(2px);
+$checkbox-square-border-radius: px-to-rem(6px);
+$checkbox-square-hover-border-color: $color-primary;
+$checkbox-square-checked-border-color: $color-primary;
+$checkbox-square-checked-background-color: $color-primary;
+$checkbox-square-unchecked-background-color: transparent;
+$checkbox-square-unchecked-border-color: rgba($color-black, 0.12);
+
+$checkbox-icon-font-size: px-to-em(18px);
+$checkbox-icon-hover-color: $color-white;
+$checkbox-icon-checked-color: $color-white;
+$checkbox-icon-unchecked-color: $color-white;
+$checkbox-icon-square-vertical-alignment-value: px-to-em(1px);
+$checkbox-icon-position-left: ($checkbox-square-dimension / 2) - ($checkbox-icon-font-size / 2);
+
+$checkbox-text-color: $input-color;
+$checkbox-text-hover-color: $input-color;
+$checkbox-text-checked-color: inherit;
+
+@mixin input-label-active {
+  transform: translate3d(0, calc(-100% - #{$control-height / 4}), 0) scale3d(0.7, 0.7, 1);
+}
+
+@mixin input-label-create {
+  position: absolute;
+  z-index: $z-index-c-input-label;
+  top: 50%;
+  left: $control-padding-sides - $label-padding-sides;
+  padding: 0 $label-padding-sides;
+  background-color: $label-background-color;
+  border-radius: px-to-rem(6px); // Add this to get a nice view when input autofilled
+  color: $label-color;
+  font-size: $input-font-size;
+  line-height: 1.2;
+  pointer-events: none;
+  text-rendering: geometricPrecision;
+  transform: translate3d(0, -50%, 0);
+  transform-origin: 0 50%;
+  transition: transform 0.3s, color 0.3s;
+}
+
+@mixin input-dynamic-height {
+  top: $control-height / 2;
+}
