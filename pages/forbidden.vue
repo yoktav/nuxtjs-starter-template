@@ -4,6 +4,10 @@
 
 <script>
 export default {
+  head() {
+    return this.ROUTE_NAMES.FORBIDDEN.META;
+  },
+
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.finish();

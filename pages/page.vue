@@ -24,6 +24,10 @@ export default {
     };
   },
 
+  head() {
+    return this.ROUTE_NAMES.PAGE.META;
+  },
+
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.finish();
