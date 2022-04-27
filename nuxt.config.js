@@ -64,9 +64,8 @@ export default {
     { src: '~/plugins/vueToasted/vueToasted.js', ssr: false },
 
     // Mixins
-    '~/mixins/forLoopKey.js',
-    '~/mixins/routeNames.js',
-    '~/mixins/checkEndpointErrors.js',
+    '~/mixins/global/data.js',
+    '~/mixins/global/methods.js',
 
     // Directives
     '~/directives/tooltip/Tooltip.js',
