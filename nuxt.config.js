@@ -47,11 +47,11 @@ export default {
   loading: '~/components/PageLoading/PageLoading.vue',
 
   // Middleware
-  middleware: ['page-restrictions/page-restrictions'],
+  middleware: ['global/index'],
 
   router: {
     base: process.env.NUXT_ENV_BASE_URL,
-    middleware: 'page-restrictions/page-restrictions',
+    middleware: 'global/index',
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
