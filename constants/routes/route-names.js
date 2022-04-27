@@ -29,4 +29,13 @@ export const ROUTE_NAMES = {
       title: 'Account Page',
     },
   },
+
+  FORBIDDEN: {
+    NAME: 'forbidden',
+    PATH: '/forbidden',
+    PAGE_TITLE: 'Forbidden Page',
+    META: {
+      title: 'Forbidden Page',
+    },
+  },
 };
