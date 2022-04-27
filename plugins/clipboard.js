@@ -9,15 +9,15 @@ export default (content, inject) => {
 };
 
 export function copyTextWithToast(params) {
-  const { text } = params;
+  const { text, toastSuccessMessage = 'Successfully Copied', toastErrorMessage = 'Copy Failed!' } = params;
 
   // For detail example see: https://www.npmjs.com/package/vue-clipboard2#sample-2
   this.$copyText(text).then(
     () => {
-      this.$toast.success('Successfully copied');
+      this.$toast.success(toastSuccessMessage);
     },
     () => {
-      this.$toast.error('Copy Failed!');
+      this.$toast.error(toastErrorMessage);
     },
   );
 }

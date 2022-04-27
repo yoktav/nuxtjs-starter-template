@@ -58,13 +58,13 @@ export default {
   plugins: [
     // Plugins
     '~/plugins/env.js',
+    '~/plugins/clipboard.js',
     '~/plugins/vee-validate.js',
     '~/plugins/vueSelect/vueSelect.js',
     { src: '~/plugins/vueToasted/vueToasted.js', ssr: false },
 
     // Mixins
     '~/mixins/forLoopKey.js',
-    '~/mixins/clipboard.js',
     '~/mixins/routeNames.js',
     '~/mixins/checkEndpointErrors.js',
 
