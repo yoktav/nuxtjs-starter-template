@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { ROUTE_NAMES } from '~/constants/project/routes';
+import { ROUTE_NAMES } from '~/constants/routes';
 
 Vue.mixin({
   data() {
