@@ -17,6 +17,9 @@ export const STATIC_ENV_LIST = {
   //
 
   COOKIE_PATH_BASE: '/',
+  COOKIE_NAME_TOKEN: 'token-name',
+  COOKIE_NAME_TOKEN_TYPE: 'token-type',
+  COOKIE_NAME_TOKEN_EXPIRE: 'token-expire',
 
   INPUT_BASE_VALIDATE_REGEX: RX_INPUT_BASE_VALIDATION,
 };
