@@ -26,6 +26,7 @@ export const RX_TRIM_RIGHT = /\s+$/;
 export const RX_UNDERSCORE = /_/g;
 export const RX_UN_KEBAB = /-(\w)/g;
 export const RX_PHONE = /(\d{0,3})(\d{0,3})(\d{0,4})/;
+export const RX_INPUT_FORMATTED_PHONE = /\((\d{3})\)\s(\d{3})-(\d{4})/;
 
 // --- Date ---
 
