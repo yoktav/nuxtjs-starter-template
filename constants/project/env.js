@@ -22,6 +22,11 @@ export const STATIC_ENV_LIST = {
 };
 
 export const DYNAMIC_ENV_LIST = {
+  LOGIN_URL: {
+    live: 'https://live.example-login.com',
+    dev: 'https://dev.example-login.com',
+    local: 'https://local.example-login.com',
+  },
   API_BASE: {
     live: 'https://live.example-api.com',
     dev: 'https://dev.example-api.com',
