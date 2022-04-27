@@ -8,7 +8,7 @@ function setOffset(offset) {
     return [0, 4]; // Initial value
   } else {
     return offset
-      .replace(/[[\]']+/g, '') // Remove `[` and `]`
+      .replace(/[[\]']+/g, '') // Replace `[` and `]`
       .split(',')
       .map(value => {
         return parseInt(value, 10);
@@ -18,6 +18,7 @@ function setOffset(offset) {
 
 Vue.directive('tooltip', {
   inserted: el => {
+    const { dataset } = el;
     const {
       tooltipAnimatefill,
       tooltipTheme,
@@ -27,7 +28,8 @@ Vue.directive('tooltip', {
       tooltipMaxwidth,
       tooltipOffset,
       tooltipHideMobile,
-    } = el.dataset;
+      tooltipDisable,
+    } = dataset;
 
     const tooltip = tippy(el, {
       animateFill: tooltipAnimatefill ? tooltipAnimatefill === 'true' : true,
@@ -41,7 +43,7 @@ Vue.directive('tooltip', {
       plugins: [animateFill],
     });
 
-    if (tooltipHideMobile && document.body.clientWidth < MOBILE_THRESHOLD_VALUE) {
+    if (tooltipDisable === 'true' || (tooltipHideMobile && document.body.clientWidth < MOBILE_THRESHOLD_VALUE)) {
       tooltip.disable();
     }
   },
