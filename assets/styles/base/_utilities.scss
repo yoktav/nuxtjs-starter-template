@@ -37,6 +37,10 @@
   @include flexbox-horizontal-center;
 }
 
+.u-flexbox-center {
+  @include flexbox-center;
+}
+
 //
 // Utilities
 //
@@ -116,6 +120,19 @@ $g-utilities: (
       'white': $color-white,
       'default': $g-text-color,
       'black': $color-black,
+    ),
+  ),
+  'color-state': (
+    property: color,
+    values: (
+      'low': $color-info,
+      'normal': $color-warning,
+      'high': $color-danger,
+      'urgent': $color-urgent,
+      'created': $color-info,
+      'continues': $color-warning,
+      'completed': $color-success,
+      'cancelled': $color-danger,
     ),
   ),
   'background-repeat': (
@@ -307,19 +324,16 @@ $g-utilities: (
   ),
   'text-align': (
     property: text-align,
-    values: (
-      value: left,
-      responsive: true,
-    )
-    (
-      value: right,
-      responsive: true,
-    )
-    (
-      value: center,
-      responsive: true,
-    )
-    justify,
+    values: left
+      (
+        value: right,
+        responsive: true,
+      )
+      (
+        value: center,
+        responsive: true,
+      )
+      justify,
   ),
   'text-transform': (
     property: text-transform,
