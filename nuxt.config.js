@@ -1,6 +1,9 @@
 //
 // In order to fix cache problem, we are adding a random number for every build
 // [contenthash] generates for changes, but Math.random() generates for every build
+
+import { GET_ENV } from './constants/project/env';
+
 //
 const version = Math.random();
 
@@ -23,13 +26,7 @@ export default {
       { name: 'msapplication-TileColor', content: '#1620d7' },
     ],
 
-    link: [
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: `${process.env.NUXT_ENV_BASE_URL}/favicon/favicon.ico`,
-      },
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -89,10 +86,10 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.NUXT_ENV_APOLLO_ENDPOINT,
+        httpEndpoint: GET_ENV().APOLLO_ENDPOINT,
       },
     },
-    authenticationType: process.env.NUXT_ENV_APOLLO_AUTHENTICATION_TYPE,
+    authenticationType: GET_ENV().APOLLO_AUTHENTICATION_TYPE,
   },
 
   i18n: {

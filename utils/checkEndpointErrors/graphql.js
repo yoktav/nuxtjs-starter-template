@@ -47,7 +47,7 @@ export function checkGraphQLRequestErrors(params) {
 
   if (!error) return true;
 
-  if (process.env.NUXT_ENV_MODE == 'development') console.log(error);
+  if (process.env.NODE_ENV == 'development') console.log(error);
 
   if (checkUnauthorized(params)) return true;
 
