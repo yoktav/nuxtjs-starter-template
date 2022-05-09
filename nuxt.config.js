@@ -4,8 +4,9 @@
 
 import { GET_ENV } from './constants/project/env';
 
-//
 const version = Math.random();
+
+const baseUrl = process.env.NUXT_ENV_BASE_URL;
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -36,7 +37,7 @@ export default {
   ],
 
   env: {
-    baseUrl: process.env.NUXT_ENV_BASE_URL,
+    baseUrl,
   },
 
   target: 'static',
@@ -44,11 +45,11 @@ export default {
   loading: '~/components/PageLoading/PageLoading.vue',
 
   // Middleware
-  middleware: ['global/index'],
+  // middleware: ['global/index'],
 
   router: {
-    base: process.env.NUXT_ENV_BASE_URL,
-    middleware: 'global/index',
+    base: baseUrl,
+    // middleware: 'global/index',
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
