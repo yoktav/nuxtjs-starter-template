@@ -1,4 +1,4 @@
-export async function fakePromise(params = {}) {
+export async function sleep(params = {}) {
   const { time = 1000 } = params;
 
   return await new Promise(resolve => {
