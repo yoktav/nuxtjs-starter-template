@@ -16,6 +16,12 @@
 export default {
   layout: 'page',
 
+  data() {
+    return {
+      options: ['Option 1', 'Option 2'],
+    };
+  },
+
   head() {
     return this.ROUTE_NAMES.HOME.META;
   },
