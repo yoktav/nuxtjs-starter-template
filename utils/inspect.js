@@ -56,5 +56,7 @@ export const isPromise = value => !isUndefinedOrNull(value) && isFunction(value.
 export const getLength = value => {
   if (isArray(value)) return value.length;
   if (isObject(value)) return Object.keys(value).length;
+  if (isString(value)) return value.length;
+
   return value;
 };
