@@ -7,13 +7,7 @@
         <img
           :src="
             require(`~/assets/img/error-${
-              error.statusCode === 403
-                ? '403'
-                : error.statusCode === 404
-                ? '404'
-                : error.statusCode === 500
-                ? '500'
-                : '500'
+              error.statusCode === 403 ? '403' : error.statusCode === 404 ? '404' : error.statusCode === 500 ? '500' : '500'
             }.png`)
           "
           :alt="
