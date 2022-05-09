@@ -1,6 +1,7 @@
 import { ROUTE_NAMES } from '~/constants/routes';
 
-export default async function (context) {
+// Must return true if restriction is applied
+export const pageRestrictions = async context => {
   const routeName = context.route.name;
 
   if (routeName === null) {
@@ -13,4 +14,4 @@ export default async function (context) {
     context.redirect(302, ROUTE_NAMES.HOME.PATH);
     return;
   }
-}
+};

@@ -45,11 +45,11 @@ export default {
   loading: '~/components/PageLoading/PageLoading.vue',
 
   // Middleware
-  // middleware: ['global/index'],
+  middleware: ['global/index'],
 
   router: {
     base: baseUrl,
-    // middleware: 'global/index',
+    middleware: 'global/index',
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
