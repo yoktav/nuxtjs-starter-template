@@ -1,14 +1,17 @@
 import { HAS_WINDOW_SUPPORT, DOCUMENT, GET_ENV } from '~/constants/project/env';
 
 export function getCookie(params) {
-  if (!HAS_WINDOW_SUPPORT) {
+  // Specify `where` as `context.req.headers` to access a value in cookie from Nuxt middleware
+  // CAUTION: Req is not available via nuxt generate
+
+  const { name: cookie_name, where = DOCUMENT } = params;
+
+  if (!HAS_WINDOW_SUPPORT && where === DOCUMENT) {
     return;
   }
 
-  const { name: cookie_name } = params;
-
   const name = cookie_name + '=';
-  const decoded = decodeURIComponent(DOCUMENT.cookie); // To be careful
+  const decoded = decodeURIComponent(where.cookie); // To be careful
   const cookies = decoded.split('; ');
 
   let cookie;
