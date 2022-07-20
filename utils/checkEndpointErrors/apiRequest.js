@@ -1,5 +1,5 @@
 import { HTTP_CODES } from '~/constants/http-codes';
-import { goToLoginPage } from '../auth';
+import { goToLoginPage } from '../browser';
 
 export function checkApiResponseErrors(params) {
   const { that, response } = params;
