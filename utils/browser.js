@@ -1,5 +1,4 @@
-import { HAS_WINDOW_SUPPORT, WINDOW } from '~/constants/env';
-import { GET_ENV } from '~/constants/project/env';
+import { GET_ENV, HAS_WINDOW_SUPPORT, WINDOW } from '~/constants/project/env';
 import { isUndefinedOrNullOrEmpty } from './inspect';
 
 export function openInNewTab(url) {
